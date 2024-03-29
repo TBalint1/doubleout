@@ -1,0 +1,92 @@
+
+.table-container {
+    width: 28%;
+    margin: 50px auto 0;
+    box-shadow: 0 0 5px black;
+    margin-right: 50px;
+    float: right;
+    
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.5rem; /* Lekerekített szélek */
+}
+
+.table-container th,
+.table-container td {
+    padding: 10px;
+    text-align: center;
+    color: crimson;
+}
+
+.table-container th {
+    background-color: darkred; /* Piros hátterű fejléc */
+    color: #fff;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #f5f5dc; /* Bézs háttérszín páros soroknak */
+    color: crimson;
+}
+
+.table-container tr:nth-child(odd) {
+    background-color: #fff; /* Fehér háttérszín páratlan soroknak */
+    color: crimson
+}
+
+.table-container a {
+    color: crimson;
+}
+
+.match-container {
+    width: 40%;
+    margin: 50px auto 0;
+    box-shadow: 0 0 5px black;
+    margin-right: 50px;
+    float: right;
+    
+}
+
+.match-container table {
+    width: 100%;
+    border-radius: 10px; /* Lekerekített szélek */
+}
+
+.match-container caption{
+    background-color: darkred; /* Piros hátterű fejléc */
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.match-container th,
+.match-container td {
+    padding: 10px;
+    text-align: center;
+    color: crimson;
+}
+
+.match-container th {
+    background-color: darkred; /* Piros hátterű fejléc */
+    color: #fff;
+    text-align: center;
+}
+
+.match-container tr:nth-child(even) {
+    background-color: #f5f5dc; /* Bézs háttérszín páros soroknak */
+    color: crimson;
+}
+
+.match-container tr:nth-child(odd) {
+    background-color: #fff; /* Fehér háttérszín páratlan soroknak */
+    color: crimson
+}
+
+.match-container a {
+    color: crimson;
+    text-align: center;
+}
+
+
+

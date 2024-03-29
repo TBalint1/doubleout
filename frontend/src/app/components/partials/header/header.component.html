@@ -1,0 +1,22 @@
+<header>
+    <div class="inner">
+        <div class="logo">
+            <div>
+                <a routerLink="/">
+                    <img src="assets/doubleout_logo.png" alt="DoubleOut">
+                </a>
+            </div>
+        </div>
+
+        <nav>
+            
+            <li><span><a routerLink="/dashboard">Balint</a></span></li>
+                <ul class="menu">
+                    <li><a routerLink="/profile">Profile</a></li>
+                    <li><a (click)="logout()">Logout</a></li>
+                </ul>
+            <li><span><a routerLink="/tournaments">Tournaments</a></span></li>
+            <li><span><a routerLink="/players">Players</a></span></li>
+            
+        </nav>
+    </div>

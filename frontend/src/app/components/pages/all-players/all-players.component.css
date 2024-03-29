@@ -1,0 +1,48 @@
+ul {
+    display: flex;
+    justify-content: flex-start; /* Módosítás */
+    align-items: flex-start; /* Módosítás */
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Módosítás */
+}
+
+li a {
+    height: 10rem; /* Módosítás */
+    width: calc(75% - 1rem); /* Módosítás */
+    border: 2px solid #ccc; /* Vékony keret */
+    border-radius: 0.5rem; /* Lekerekítés */
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    color: crimson;
+    position: relative; /* Módosítás */
+}
+
+li a:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+li a img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%; /* Módosítás */
+    border-top-left-radius: 1rem; /* Módosítás */
+    border-top-right-radius: 1rem; /* Módosítás */
+}
+
+.content {
+    padding: 0.5rem 1rem;
+    height: calc(50% - 0.3rem); /* Módosítás */
+    overflow: hidden; /* Módosítás */
+}
+
+.details {
+    background: white;
+    padding: 0.3rem 1rem; /* Módosítás */
+    color: #414141;
+    font-size: 1.1rem;
+}

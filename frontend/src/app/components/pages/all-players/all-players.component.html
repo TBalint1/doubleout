@@ -1,0 +1,19 @@
+<app-search></app-search>
+<app-not-found
+[visible]="!players || !players.length"
+resetLinkText="Reset Search">
+</app-not-found>
+<ul>
+    <li *ngFor="let player of players">
+        <a routerLink="/player/{{player.ID}}">
+        
+            <img  [src]="player.IMAGE_PATH" [alt]="player.NAME"/>
+                <div class="name">
+                    {{player.NAME}}
+                </div>
+            <span class="details">
+                {{player.RANK_TEXT}}
+            </span>        
+        </a>
+    </li>
+</ul>

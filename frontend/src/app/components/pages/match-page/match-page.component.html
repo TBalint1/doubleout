@@ -1,0 +1,16 @@
+<ul>
+    <div class="match-container">
+        <table>
+        <caption>{{tournament.LEAGUE_NAME}}</caption>
+        <tr>
+                <td>
+                    <img [src]="match.HOME_IMG" [alt]="match.HOME_NAME"/>
+                </td>
+                <td>{{match.HOME_NAME}}</td>
+                <td>{{match.HOME_SCORE}} - {{match.AWAY_SCORE}}</td>
+                <td>{{match.AWAY_NAME}}</td>
+                <td><img [src]="match.AWAY_IMG" [alt]="match.AWAY_NAME"/></td>            
+        </tr>
+        </table>
+    </div>
+</ul>

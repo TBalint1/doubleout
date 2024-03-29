@@ -1,0 +1,33 @@
+
+<ul>
+<div class="table-container">
+<table>
+    <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Result</th>
+    </tr>
+
+    <tr *ngFor="let ranking of ranking">
+        <td>{{ranking.rank}}</td>
+        <td>
+            <a routerLink="/ranking/{{ranking.id}}">{{ranking.playerName}}</a>
+        </td>
+        <td>{{ranking.result}}</td>
+    </tr>
+</table>
+</div>
+<div class="match-container">
+    <table>
+    <caption></caption>
+    <tr *ngFor="let matches of matches">
+            <a [routerLink]="'/match/' + matches.ID">
+                <td>{{ matches.START }}</td>
+                <td>{{ matches.HOME_NAME }}</td>
+                <td>{{ matches.HOME_SCORE }} - {{ matches.AWAY_SCORE }}</td>
+                <td>{{ matches.AWAY_NAME }}</td>
+            </a>
+    </tr>
+    </table>
+</div>
+</ul>
