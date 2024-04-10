@@ -10,11 +10,12 @@
 
         <nav>
             
-            <li><span><a routerLink="/dashboard">Balint</a></span></li>
-                <ul class="menu">
-                    <li><a routerLink="/profile">Profile</a></li>
-                    <li><a (click)="logout()">Logout</a></li>
-                </ul>
+            <li *ngIf="!isAuth"><span><a routerLink="/login">Login</a></span></li>
+            <li *ngIf="isAuth" class="menu-container"><span><a routerLink="/dashboard">{{user.name}}</a></span></li>
+                <div class="menu">
+                    <a routerLink="/profile">Profile</a>
+                    <a (click)="logout()">Logout</a>
+                </div>
             <li><span><a routerLink="/tournaments">Tournaments</a></span></li>
             <li><span><a routerLink="/players">Players</a></span></li>
             

@@ -1,40 +1,36 @@
 
 export const sample_tournaments: any[] = [
   {
-    LEAGUE_NAME: "PDC World Championship",
-    COUNTRY_NAME: "World",
+    NAME: "Test Tournament",
+    TYPE: "Elimination",
     COUNTRY_ID: 8,
-    ACTUAL_TOURNAMENT_SEASON_ID: "AqeVZnJH",
-    GROUP_ID: "KGO4pUqO",
-    SEASON_ID: 175,
-    TEMPLATE_ID: "8_KGO4pUqO",
-    STAGE_ID: "UVTjKL87",
-    DURRATION: "15 December 2023 - 3 January 2024",
-    START_MONTH: 12
-  },
-  {
-    LEAGUE_NAME: "Grand Slam",
-    COUNTRY_NAME: "World",
-    COUNTRY_ID: 8,
-    ACTUAL_TOURNAMENT_SEASON_ID: "xYHkim6e",
-    GROUP_ID: "jXzWoWa5",
-    SEASON_ID: 175,
-    TEMPLATE_ID: "8_jXzWoWa5",
-    STAGE_ID: "Qm0vfU1H",
-    DURRATION: "11 - 19 November 2023",
-    START_MONTH: 11
-  },
-  {
-    LEAGUE_NAME: "Players Championship Finals",
-    COUNTRY_NAME: "World",
-    COUNTRY_ID: 8,
-    ACTUAL_TOURNAMENT_SEASON_ID: "QNT3X5p4",
-    GROUP_ID: "0SwtclaU",
-    SEASON_ID: 175,
-    TEMPLATE_ID: "8_0SwtclaU",
-    STAGE_ID: "tbPhon7h",
-    DURRATION: " 24 - 26 November 2023",
-    START_MONTH: 11
+    PLAYERS_COUNT: "4",
+    ROUND: "2",
+    START_DATE: "2024.04.01",
+    MATCH: [
+      {
+        POINTS: 301,
+        LEGS: 3,
+        DOUBLE_OUT: false
+      }
+    ],
+    PLAYERS: [
+      {
+        NAME: "Player1"
+      },
+      {
+        NAME: "Player2"
+      },
+      {
+        NAME: "Player3"
+      },
+      {
+        NAME: "Player4"
+      }
+    ],
+    CURRENT_ROUND: "Finished",
+    Winner: "Player1",
+    RUNNER_UP: "Player2"
   },
 ]
 

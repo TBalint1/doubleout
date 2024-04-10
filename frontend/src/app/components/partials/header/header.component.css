@@ -61,18 +61,22 @@ header nav a{
     color: #D6350E;
 }
 
-header nav ul.menu{
+.menu-container{
+    position: relative;
+}
+
+.menu{
     position:absolute;
     z-index:1;
     background:whitesmoke;
     display: none;
-}
+  }
   
-header nav ul:hover .menu{
+  .menu-container:hover .menu{
     display: block;
-}
+  }
   
-header nav li ul.menu a{
+  .menu a{
     width: 100%;
     min-width:8rem;
-}
+  }
