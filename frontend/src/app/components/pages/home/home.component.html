@@ -17,15 +17,14 @@
     </tr>
 </table>
 </div>
+<default-button text = "+New Tournament" routerLink="/new-tournament"></default-button>
 <div class="match-container">
     <table>
     <caption></caption>
-    <tr *ngFor="let matches of matches">
-            <a [routerLink]="'/match/' + matches.ID">
-                <td>{{ matches.START }}</td>
-                <td>{{ matches.HOME_NAME }}</td>
-                <td>{{ matches.HOME_SCORE }} - {{ matches.AWAY_SCORE }}</td>
-                <td>{{ matches.AWAY_NAME }}</td>
+    <tr *ngFor="let tournaments of tournaments">
+            <a [routerLink]="'/match/' + tournaments.id">
+                <td>Next match:</td>
+                <td>{{ tournaments.currentRound}}</td>
             </a>
     </tr>
     </table>

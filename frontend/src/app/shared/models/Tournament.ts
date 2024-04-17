@@ -1,15 +1,17 @@
+import { MatchSettings } from "./MatchSettings";
+import { PlayersData } from "./PlayerData";
 
 
 
 export class Tournament{
-    LEAGUE_NAME!:string;
-    COUNTRY_NAME!:string;
-    COUNTRY_ID!:number;
-    ACTUAL_TOURNAMENT_SEASON_ID!:string;
-    GROUP_ID!:string;
-    SEASON_ID!:number;
-    TEMPLATE_ID!:string;
-    STAGE_ID!: string;
-    DURRATION!:string;
-    START_MONTH!:number;
+    id!:string;
+    name!:string;
+    type!:string;
+    playersCount!:number;
+    round!:string;
+    match!:MatchSettings[];
+    players!:PlayersData[];
+    currentRound!:string;
+    winner!: string;
+    runnerUp!:string;
 }

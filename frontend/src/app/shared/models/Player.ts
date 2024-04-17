@@ -1,12 +1,8 @@
 export class Player{
-    ID!:string;
-    SHORT_NAME!:string;
-    GENDER_ID!:number
-    COUNTRY_NAME!:string;
-    IMAGE_PATH!:string;
-    IMAGE_WIDTH!:string;
-    IMAGE_ID!:string;
-    NAME!:string;
-    BIRTHDAY_TIME!:string;
-    RANK_TEXT!:string;
+    id!:string;
+    name!:string;
+    tournament_win!:number
+    tournament_lose!:number;
+    match_win!:number;
+    match_lose!:number;
 }

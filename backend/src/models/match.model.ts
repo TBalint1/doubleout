@@ -28,7 +28,6 @@ export interface Match{
     ID:string;
     TOURNAMENT_ID:string;
     ROUND:string;
-    START:string;
     FIRST_TO:number;
     DOUBLE_OUT: boolean
     HOME_ID:string;
@@ -46,7 +45,6 @@ export const MatchSchema = new Schema<Match>(
     {
         TOURNAMENT_ID:{type: String,required:true},
         ROUND:{type: String,required:true},
-        START:{type: String,required:true},
         FIRST_TO:{type: Number, required:true},
         DOUBLE_OUT: {type: Boolean, required:true},
         HOME_ID:{type: String,required:true},
@@ -54,6 +52,7 @@ export const MatchSchema = new Schema<Match>(
         HOME_SCORE:{type: Number,required:true},
         AWAY_ID:{type: String,required:true},
         AWAY_NAME:{type: String,required:true},
+        AWAY_SCORE:{type: Number,required: true},
         LEG:
         [
             {
@@ -78,7 +77,7 @@ export const MatchSchema = new Schema<Match>(
                 },
               ],
             },
-          ],
+        ],
           WINNER:{type: String,required:true},
     },{
         toJSON:{
@@ -92,4 +91,4 @@ export const MatchSchema = new Schema<Match>(
     }
 );
 
-export const PlayerModel = model<Match>('match',MatchSchema);
+export const MatchModel = model<Match>('match',MatchSchema);

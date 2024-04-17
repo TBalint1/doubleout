@@ -1,55 +1,53 @@
 import { Schema, model } from "mongoose";
 
-export interface MATCH{
+export interface MatchSettings{
 
-    POINTS:number;
-    LEGS:number;
-    DOUBLE_OUT:boolean;
+    points:number;
+    legs:number;
+    doubleOut:boolean;
 
 }
 
 export interface Tournament{
-    ID:string;
-    NAME:string;
-    TYPE:string;
-    PLAYERS_COUNT:number;
-    ROUND:string;
-    START_DATE:string;
-    MATCH:MATCH[];
-    PLAYERS:PLAYERS[];
-    CURRENT_ROUND:string;
-    WINNER:string;
-    RUNNER_UP:string;
+    id:string;
+    name:string;
+    type:string;
+    playersCount:number;
+    round:string;
+    match:MatchSettings[];
+    players:PlayersData[];
+    currentRound:string;
+    winner:string;
+    runnerUp:string;
 }
 
-export interface PLAYERS{
-    NAME:string
+export interface PlayersData{
+    name:string
 }
 
 export const TournamentSchema = new Schema<Tournament>(
     {
-        NAME:{type: String, required:true},
-        TYPE:{type: String, required:true},
-        PLAYERS_COUNT:{type: Number, required:true},
-        ROUND:{type: String, required:true},
-        START_DATE:{type: String, required:true},
-        MATCH:
+        name:{type: String, required:true},
+        type:{type: String, required:true},
+        playersCount:{type: Number, required:true},
+        round:{type: String, required:true},
+        match:
         [
             {
-                POINTS:{type: Number, required:true},
-                LEGS:{type: Number, required:true},
-                DOUBLE_OUT:{type: Boolean, required:true},
+                points:{type: Number, required:true},
+                legs:{type: Number, required:true},
+                double_out:{type: Boolean, required:true},
             },
         ],
-        PLAYERS:
+        players:
         [
             {
-                NAME:{type: String, required:true},
+                name:{type: String, required:true},
             },
         ],
-        CURRENT_ROUND:{type: String, required:true},
-        WINNER:{type: String, required:true},
-        RUNNER_UP:{type: String, required:true},
+        currentRound:{type: String, required:true},
+        winner:{type: String, required:true},
+        runnerUp:{type: String, required:true},
     },{
         toJSON:{
             virtuals:true

@@ -1,21 +1,21 @@
 import { Schema, model } from "mongoose";
 
 export interface Player{
-    ID:string;
-    NAME:string;
-    TOURNAMENT_WIN: number;
-    TOURNAMENT_LOSE: number;
-    MATCH_WIN: number;
-    MATCH_LOSE: number;     
+    id:string;
+    name:string;
+    tournament_win: number;
+    tournament_lose: number;
+    match_win: number;
+    match_lose: number;     
 }
 
 export const PlayerSchema = new Schema<Player>(
     {
-        NAME:{type: String, required:true},
-        TOURNAMENT_WIN:{type: Number, required:true},
-        TOURNAMENT_LOSE:{type: Number, required: true},
-        MATCH_WIN:{type: Number, required: true},
-        MATCH_LOSE:{type: Number, required: true},
+        name:{type: String, required:true},
+        tournament_win:{type: Number, required:true},
+        tournament_lose:{type: Number, required: true},
+        match_win:{type: Number, required: true},
+        match_lose:{type: Number, required: true},
     },{
         toJSON:{
             virtuals:true

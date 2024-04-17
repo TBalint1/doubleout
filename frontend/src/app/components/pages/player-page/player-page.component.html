@@ -1,29 +1,19 @@
 <app-not-found
-  [visible]="!player.ID"
+  [visible]="!player.id"
   notFoundMessage="Player Not Found"
   resetLinkText="Back To Homepage">
 </app-not-found>
-<div *ngIf="player.ID" class="container">
+<div *ngIf="player.id" class="container">
 <div class="header">
-    <img [src]="player.IMAGE_PATH" [alt]="player.NAME"/>
     <div class="name">
-        {{player.NAME}}
+        {{player.name}}
     </div>
-    <div class="nation">
-        {{player.COUNTRY_NAME}}
+    <div class="tournament record">
+        {{player.tournament_win}} - {{player.tournament_lose}}
     </div>
-    <div class="birthday">
-        {{player.BIRTHDAY_TIME}}
-    </div>
-    <div class="ranking">
-        {{player.RANK_TEXT}}
-    </div>
-    <div class="prize">
-        {{ranking.result}}
-    </div>
-    <div class="win">Season win%: 66%</div>
-    <div class="average">Season average: 95.95</div>
-    
+    <div class="match record">
+        {{player.match_win}} - {{player.match_lose}}
+    </div>    
 </div>
 
 <div class="statistics">
@@ -74,21 +64,4 @@
             <td>33.05</td>
         </tr>
     </table>
-</div>
-
-<div class="matches">
-    <div class="match-container">
-        <table>
-        <caption>Recent matches</caption>
-        <tr>
-                <a [routerLink]="'/match/' + match.ID">
-                    <td>{{ match.START }}</td>
-                    <td>{{ match.HOME_NAME }}</td>
-                    <td>{{ match.HOME_SCORE }} - {{ match.AWAY_SCORE }}</td>
-                    <td>{{ match.AWAY_NAME }}</td>
-                </a>
-        </tr>
-        </table>
-    </div>
-</div>
 </div>

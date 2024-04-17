@@ -21,6 +21,8 @@ import { TextInputComponent } from './components/partials/text-input/text-input.
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { NewTournamentPageComponent } from './components/pages/new-tournament-page/new-tournament-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModu
     InputValidationComponent,
     TextInputComponent,
     DefaultButtonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterPageComponent,
+    NewTournamentPageComponent
   ],
   imports: [
     BrowserModule,

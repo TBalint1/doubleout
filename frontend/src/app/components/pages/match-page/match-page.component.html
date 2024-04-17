@@ -1,15 +1,11 @@
 <ul>
     <div class="match-container">
         <table>
-        <caption>{{tournament.LEAGUE_NAME}}</caption>
+        <caption>{{tournament.name}}</caption>
         <tr>
-                <td>
-                    <img [src]="match.HOME_IMG" [alt]="match.HOME_NAME"/>
-                </td>
-                <td>{{match.HOME_NAME}}</td>
-                <td>{{match.HOME_SCORE}} - {{match.AWAY_SCORE}}</td>
-                <td>{{match.AWAY_NAME}}</td>
-                <td><img [src]="match.AWAY_IMG" [alt]="match.AWAY_NAME"/></td>            
+                <td>{{match.home_name}}</td>
+                <td>{{match.home_score}} - {{match.away_score}}</td>
+                <td>{{match.away_name}}</td>        
         </tr>
         </table>
     </div>

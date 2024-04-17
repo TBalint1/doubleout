@@ -6,6 +6,8 @@ import playerRouter from './routers/player.router';
 import { dbConnect } from './configs/database.config';
 dbConnect();
 import userRouter from './routers/user.router';
+import matchRouter from './routers/match.router'
+import tournamentRouter from './routers/tournament.router';
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(cors({
 
 app.use("/api/players", playerRouter)
 app.use("/api/users", userRouter)
+app.use("/api/matches", matchRouter)
+app.use("/api/tournaments",tournamentRouter)
 const port = 5000;
 
 app.listen(port, () => {

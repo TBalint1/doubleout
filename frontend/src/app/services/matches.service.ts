@@ -20,10 +20,10 @@ export class MatchesService {
 
 
   getMatchByID(matchID:string):Match{
-    return this.getAll().find( match => match.ID == matchID) ?? new Match;
+    return this.getAll().find( match => match.id == matchID) ?? new Match;
   }
 
   getTournamentByID(tournamentID:string):Tournament{
-    return this.getAllTournaments().find( tournament => tournament.STAGE_ID == tournamentID) ?? new Tournament;
+    return this.getAllTournaments().find( tournament => tournament.id == tournamentID) ?? new Tournament;
   }
 }

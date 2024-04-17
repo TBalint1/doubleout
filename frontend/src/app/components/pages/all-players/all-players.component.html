@@ -5,15 +5,10 @@ resetLinkText="Reset Search">
 </app-not-found>
 <ul>
     <li *ngFor="let player of players">
-        <a routerLink="/player/{{player.ID}}">
-        
-            <img  [src]="player.IMAGE_PATH" [alt]="player.NAME"/>
+        <a routerLink="/player/{{player.id}}">
                 <div class="name">
-                    {{player.NAME}}
-                </div>
-            <span class="details">
-                {{player.RANK_TEXT}}
-            </span>        
+                    {{player.name}}
+                </div>      
         </a>
     </li>
 </ul>

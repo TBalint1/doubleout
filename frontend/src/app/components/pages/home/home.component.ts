@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
-import { MatchesService } from 'src/app/services/matches.service';
 import { RankingService } from 'src/app/services/ranking.service';
-import { Match } from 'src/app/shared/models/Match';
+import { TournamentsService } from 'src/app/services/tournaments.service';
+import { Tournament } from 'src/app/shared/models/Tournament';
 import { WorldRanking } from 'src/app/shared/models/WorldRanking';
 
 @Component({
@@ -12,10 +12,10 @@ import { WorldRanking } from 'src/app/shared/models/WorldRanking';
 export class HomeComponent implements OnInit {
 
   ranking:WorldRanking[] = [];
-  matches:Match[] = [];
-  constructor(private rankingService:RankingService,private matchesService:MatchesService){ 
+  tournaments:Tournament[] = [];
+  constructor(private rankingService:RankingService,private tournamentsService:TournamentsService){ 
     this.ranking = rankingService.getAll();
-    this.matches = matchesService.getAll();
+    this.tournaments = tournamentsService.getAll();
   }
 
   ngOnInit(): void {

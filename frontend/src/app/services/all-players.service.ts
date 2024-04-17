@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Player } from '../shared/models/Player';
-import { sample_WorldRanking, sample_matches, sample_players } from 'src/data';
-import { WorldRanking } from '../shared/models/WorldRanking';
+import { sample_matches, sample_players } from 'src/data';
 import { Match } from '../shared/models/Match';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,9 +17,6 @@ export class AllPlayersService {
     return this.http.get<Player[]>(PLAYERS_URL);
   }
 
-  getAllRanking():WorldRanking[]{
-    return sample_WorldRanking
-  }
 
   getAllMatch():Match[]{
     return sample_matches
@@ -34,13 +30,9 @@ export class AllPlayersService {
     return this.http.get<Player>(PLAYER_BY_ID_URL + playerID);      
   }
 
-  getRankingByID(playerID:string):WorldRanking{
-    return this.getAllRanking().find( ranking => ranking.id == playerID) ?? new WorldRanking;
-  }
-
   getMatchByPlayerID(playerID:string):Match{
     
-  return this.getAllMatch().find( match => match.HOME_ID == playerID || match.AWAY_ID == playerID) ?? new Match;
+  return this.getAllMatch().find( match => match.home_id == playerID || match.away_id == playerID) ?? new Match;
   }
   
 }

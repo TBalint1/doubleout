@@ -1,14 +1,11 @@
 <ul>
     <div class="tournament-container">
         <table>
-            <caption>November</caption>
+            <caption>Tournaments</caption>
             <tr *ngFor="let tournament of tournaments">
-                <ng-container *ngIf="tournament.START_MONTH is 11">
-                    <a [routerLink]="'/tournament/'+ tournament.ACTUAL_TOURNAMENT_SEASON_ID"></a>
-                    <td>{{tournament.LEAGUE_NAME}}</td>
-                    <td>{{tournament.DURRATION}}</td>
-                    <td>{{tournament.COUNTRY_NAME}}</td>                
-                </ng-container>            
+                    <a [routerLink]="'/tournament/'+ tournament.id"></a>
+                    <td>Next Match:</td>
+                    <td>{{tournament.currentRound}}</td>                          
             </tr>
         </table>
     </div>
