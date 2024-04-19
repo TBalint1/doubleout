@@ -7,49 +7,56 @@
             [showErrorsWhen]="isSubmitted"
             label="Name">
         </text-input>
-        <text-input
-            [formControl]="fc.type"
+        <select-input
+            [control]="fc.type"
             [showErrorsWhen]="isSubmitted"
-            label="Type">
-            <option value="Elimination">Elimination</option>
-            <option value="League">League</option>
-        </select>
-        <text-input
+            label="Type"
+            [options]="[
+                {value: 'elimination', label: 'Elimination'},
+                {value: 'league', label: 'League'},
+            ]">
+        </select-input>
+        <select-input
             [control]="fc.playersCount"
             [showErrorsWhen]="isSubmitted"
-            label="Number of players"></text-input>
-        <text-input
+            label="Number of players"
+            [options]="[
+                {value: 2, label: '2'},
+                {value: 4, label: '4'},
+                {value: 8, label: '8'},
+                {value: 16, label: '16'},
+            ]">
+        </select-input>
+        <select-input
             [control]="fc.points"
             [showErrorsWhen]="isSubmitted"
-            label="Points">
-        </text-input>
-        <select
-            [control]="fc.match"
+            label="Points"
+            [options]="[
+                {value: 301, label: '301'},
+                {value: 501, label: '501'},
+                {value: 701, label: '701'},
+            ]">
+        </select-input>
+        <select-input
+            [control]="fc.legs"
             [showErrorsWhen]="isSubmitted"
             label="Legs"
-            type="legs">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select>
-        <
-            [control]="fc.password"
+            [options]="[
+                {value: 1, label: '1'},
+                {value: 2, label: '2'},
+                {value: 3, label: '3'},
+            ]">
+        </select-input>
+        <select-input
+            [control]="fc.doubleOut"
             [showErrorsWhen]="isSubmitted"
-            label="Password"
-            type="password">
-        </select>
-        <text-input
-        [control]="fc.confirmPassword"
-        [showErrorsWhen]="isSubmitted"
-        label="Confirm Password"
-        type="password">
-    </text-input>
-    <default-button text="Register"></default-button>
+            label="Double Out"
+            [options]="[
+                {value: true, label: 'Yes'},
+                {value: false, label: 'No'},
+            ]">
+        </select-input>
+    <default-button text="Create Tournament"></default-button>
         </form>
     </div>
 </div>
