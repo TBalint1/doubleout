@@ -1,8 +1,9 @@
 import { Component,OnInit } from '@angular/core';
-import { RankingService } from 'src/app/services/ranking.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { TournamentsService } from 'src/app/services/tournaments.service';
 import { Tournament } from 'src/app/shared/models/Tournament';
-import { WorldRanking } from 'src/app/shared/models/WorldRanking';
+
 
 @Component({
   selector: 'app-home',
@@ -11,16 +12,20 @@ import { WorldRanking } from 'src/app/shared/models/WorldRanking';
 })
 export class HomeComponent implements OnInit {
 
-  ranking:WorldRanking[] = [];
   tournaments:Tournament[] = [];
-  constructor(private rankingService:RankingService,private tournamentsService:TournamentsService){ 
-    this.ranking = rankingService.getAll();
-    this.tournaments = tournamentsService.getAll();
+  constructor(private tournamentsService: TournamentsService, activatedRoute: ActivatedRoute) {
+    let tournamentsObservalbe:Observable<Tournament[]>;
+    activatedRoute.params.subscribe((params) => {
+        tournamentsObservalbe = tournamentsService.getAll();
+
+        tournamentsObservalbe.subscribe((serverTournaments) => {
+          this.tournaments = serverTournaments;
+        })
+    })
+
   }
 
   ngOnInit(): void {
   }
-
-  public dateValue: Date = new Date(2024, 2, 27);
 
 }

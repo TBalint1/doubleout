@@ -1,1 +1,55 @@
-<p>new-tournament-page works!</p>
+<div class="container">
+    <div class="details">
+        <app-title title="New Tournament"></app-title>
+        <form [formGroup]="newTournamentForm" (ngSubmit)="submit()">
+        <text-input
+            [control]="fc.name"
+            [showErrorsWhen]="isSubmitted"
+            label="Name">
+        </text-input>
+        <text-input
+            [formControl]="fc.type"
+            [showErrorsWhen]="isSubmitted"
+            label="Type">
+            <option value="Elimination">Elimination</option>
+            <option value="League">League</option>
+        </select>
+        <text-input
+            [control]="fc.playersCount"
+            [showErrorsWhen]="isSubmitted"
+            label="Number of players"></text-input>
+        <text-input
+            [control]="fc.points"
+            [showErrorsWhen]="isSubmitted"
+            label="Points">
+        </text-input>
+        <select
+            [control]="fc.match"
+            [showErrorsWhen]="isSubmitted"
+            label="Legs"
+            type="legs">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <
+            [control]="fc.password"
+            [showErrorsWhen]="isSubmitted"
+            label="Password"
+            type="password">
+        </select>
+        <text-input
+        [control]="fc.confirmPassword"
+        [showErrorsWhen]="isSubmitted"
+        label="Confirm Password"
+        type="password">
+    </text-input>
+    <default-button text="Register"></default-button>
+        </form>
+    </div>
+</div>

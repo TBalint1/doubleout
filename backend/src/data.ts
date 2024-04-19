@@ -657,36 +657,44 @@ export const sample_matches: any[] = [
 export const sample_players: any [] = [
 
   {
-    NAME:"Player1",
-    TOURNAMENT_WIN:1,
-    TOURNAMENT_LOSE:0,
-    MATCH_WIN:2,
-    MATCH_LOSE:0,
+    name:"Player1",
+    tournament_win:1,
+    tournament_lose:0,
+    match_win:2,
+    match_lose:0,
   },
 
   {
-    NAME:"Player2",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:0,
-    MATCH_LOSE:1,
+    name:"Player2",
+    tournament_win:0,
+    tournament_lose:1,
+    match_win:0,
+    match_lose:1,
   },
 
   {
-    NAME:"Player3",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:1,
-    MATCH_LOSE:1,
+    name:"Player3",
+    tournament_win:0,
+    tournament_lose:1,
+    match_win:1,
+    match_lose:1,
   },
 
   {
-    NAME:"Player4",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:0,
-    MATCH_LOSE:1,
-  }
+    name:"Player4",
+    tournament_win:0,
+    tournament_lose:1,
+    match_win:0,
+    match_lose:1,
+  },
+  
+  {
+    name:"test",
+    tournament_win:0,
+    tournament_lose:0,
+    match_win:0,
+    match_lose:0,
+  },
 ]
 
 export const sample_users: any[] = [

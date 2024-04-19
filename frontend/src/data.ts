@@ -2,7 +2,6 @@ import { Tournament } from "./app/shared/models/Tournament";
 import { Match } from "./app/shared/models/Match";
 import { WorldRanking } from "./app/shared/models/WorldRanking";
 import { Player } from "./app/shared/models/Player";
-import { Throws } from "./app/shared/models/Throws";
 import { User } from "./app/shared/models/User";
 
 
@@ -673,28 +672,31 @@ export const sample_players: Player [] = [
   },
 
   {
-    NAME:"Player2",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:0,
-    MATCH_LOSE:1,
+    id:'2',
+    name:"Player2",
+    tournament_win:1,
+    tournament_lose:0,
+    match_win:2,
+    match_lose:0,
   },
 
   {
-    NAME:"Player3",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:1,
-    MATCH_LOSE:1,
+    id:'3',
+    name:"Player3",
+    tournament_win:1,
+    tournament_lose:0,
+    match_win:2,
+    match_lose:0,
   },
 
   {
-    NAME:"Player4",
-    TOURNAMENT_WIN:0,
-    TOURNAMENT_LOSE:1,
-    MATCH_WIN:0,
-    MATCH_LOSE:1,
-  }
+    id:'4',
+    name:"Player4",
+    tournament_win:1,
+    tournament_lose:0,
+    match_win:2,
+    match_lose:0,
+  },
 ]
     
   

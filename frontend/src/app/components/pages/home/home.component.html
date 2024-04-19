@@ -1,23 +1,6 @@
 
 <ul>
-<div class="table-container">
-<table>
-    <tr>
-        <th>Rank</th>
-        <th>Name</th>
-        <th>Result</th>
-    </tr>
-
-    <tr *ngFor="let ranking of ranking">
-        <td>{{ranking.rank}}</td>
-        <td>
-            <a routerLink="/ranking/{{ranking.id}}">{{ranking.playerName}}</a>
-        </td>
-        <td>{{ranking.result}}</td>
-    </tr>
-</table>
-</div>
-<default-button text = "+New Tournament" routerLink="/new-tournament"></default-button>
+<default-button text = "+New Tournament" routerLink="/tournaments/new"></default-button>
 <div class="match-container">
     <table>
     <caption></caption>

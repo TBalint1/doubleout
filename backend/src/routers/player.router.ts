@@ -21,7 +21,7 @@ router.get("/seed", asyncHandler(
 router.get("/", asyncHandler(
     async (req, res) => {
         const players = await PlayerModel.find();
-        res.send(sample_players);
+        res.send(players);
     }
 ))
 
