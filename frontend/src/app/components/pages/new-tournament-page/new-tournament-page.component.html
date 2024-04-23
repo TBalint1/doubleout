@@ -16,7 +16,7 @@
                 {value: 'league', label: 'League'},
             ]">
         </select-input>
-        <select-input
+        <select-input *ngIf="fc.type.value === 'elimination'"
             [control]="fc.playersCount"
             [showErrorsWhen]="isSubmitted"
             label="Number of players"
@@ -24,6 +24,30 @@
                 {value: 2, label: '2'},
                 {value: 4, label: '4'},
                 {value: 8, label: '8'},
+                {value: 16, label: '16'},
+                {value: 32, label: '32'},
+                {value: 64, label: '64'},
+            ]">
+        </select-input>
+        <select-input *ngIf="fc.type.value === 'league'"
+            [control]="fc.playersCount"
+            [showErrorsWhen]="isSubmitted"
+            label="Number of teams"
+            [options]="[
+                {value: 2, label: '2'},
+                {value: 3, label: '3'},
+                {value: 4, label: '4'},
+                {value: 5, label: '5'},
+                {value: 6, label: '6'},
+                {value: 7, label: '7'},
+                {value: 8, label: '8'},
+                {value: 9, label: '9'},
+                {value: 10, label: '10'},
+                {value: 11, label: '11'},
+                {value: 12, label: '12'},
+                {value: 13, label: '13'},
+                {value: 14, label: '14'},
+                {value: 15, label: '15'},
                 {value: 16, label: '16'},
             ]">
         </select-input>
@@ -56,7 +80,27 @@
                 {value: false, label: 'No'},
             ]">
         </select-input>
-    <default-button text="Create Tournament"></default-button>
+        <ng-container *ngFor="let players of fc.playersCount.value">
+            <label for="">{{players}} Players"></label>
+            <button type="button" (click)="addPlayer(players)">
+                <text-input
+                    [control]="fc.players"
+                    [showErrorsWhen]="isSubmitted"
+                    label="Player Name"
+                >
+                </text-input>
+            </button>
+            <button type="button" (click)="selectPlayer(players)">
+                <select-input
+                    [control]="fc.players"
+                    [showErrorsWhen]="isSubmitted"
+                    label="Player Name"
+                    [options]="players.name"
+                >
+                </select-input>
+            </button>
+        </ng-container>        
+        <default-button routerLink="/tournaments" text="Create Tournament"></default-button>
         </form>
     </div>
 </div>

@@ -1,16 +1,16 @@
 ul {
     display: flex;
-    justify-content: flex-start; /* Módosítás */
+    justify-content: center; /* Módosítás */
     align-items: flex-start; /* Módosítás */
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
-    margin: 0; /* Módosítás */
+    margin: 0; /* Módosítás */;
 }
 
 li a {
-    height: 10rem; /* Módosítás */
-    width: calc(75% - 1rem); /* Módosítás */
+    height: 5rem; /* Módosítás */
+    width: 25rem; /* Módosítás */
     border: 2px solid #ccc; /* Vékony keret */
     border-radius: 0.5rem; /* Lekerekítés */
     margin: 0.5rem;

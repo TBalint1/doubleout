@@ -11,8 +11,18 @@ export interface ITournamentCreate{
     type:string;
     playersCount:number;
     round:string;
-    match:IMatchSettings[];
-    players:IPlayersData[];
+    match:[
+        {
+            points:number;
+            legs:number;
+            doubleOut:boolean;
+        }
+    ];
+    players:[
+        {
+            name:string
+        }
+    ];
     currentRound:string;
     winner:string;
     runnerUp:string;

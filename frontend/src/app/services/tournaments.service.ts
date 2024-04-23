@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Tournament } from '../shared/models/Tournament';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { TOURNAMENTS_URL, MATCH_URL, PLAYER_BY_ID_URL, PLAYER_BY_SEARCH_URL, NEW_TOURNAMENT_URL } from '../shared/constants/urls';
+import { TOURNAMENTS_URL, MATCH_URL, PLAYER_BY_ID_URL, NEW_TOURNAMENT_URL, TOURNAMENT_BY_ID_URL } from '../shared/constants/urls';
 import { Match } from '../shared/models/Match';
 import { Player } from '../shared/models/Player';
 import { ITournamentCreate } from '../shared/interfaces/ITournamentCreate'
@@ -32,6 +32,7 @@ export class TournamentsService {
   getAllPlayers(): Observable<Player[]> {
     return this.http.get<Player[]>(PLAYER_BY_ID_URL)
   }
+
 
   newTournament(tournamentCreate: ITournamentCreate): Observable<Tournament> {
     return this.http.post<Tournament>(NEW_TOURNAMENT_URL, tournamentCreate).pipe(tap({

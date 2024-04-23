@@ -27,8 +27,8 @@
 }
 
 .table-container tr:nth-child(even) {
-    background-color: #f5f5dc; /* Bézs háttérszín páros soroknak */
-    color: crimson;
+    background-color: #D6350E; /* Bézs háttérszín páros soroknak */
+    color: white;
 }
 
 .table-container tr:nth-child(odd) {
@@ -88,5 +88,50 @@
     text-align: center;
 }
 
+button {
+    background-color: #D6350E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 16px 16px 16px 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
+button:hover {
+    opacity: 0.9;
+}
+
+ul {
+    display: flex;
+    justify-content: center; /* Módosítás */
+    align-items: flex-start; /* Módosítás */
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Módosítás */;
+}
+
+.tournament-container {
+    width: 40%;
+    background-color: whitesmoke;
+    color: #D6350E;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    margin-right: 50px;
+}
+.tournament-container header{
+    color: white;
+    background-color: #D6350E;
+}
+
+.tournament-container button { 
+    float: right;
+    background-color: #D6350E;
+    color: white;
+}
 

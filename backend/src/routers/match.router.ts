@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { sample_matches } from "../data";
 import asyncHandler from 'express-async-handler';
-import { MatchModel } from "../models/match.model";
+import { LEG, Match, MatchModel, SCORE_HISTORY, TURN } from "../models/match.model";
 
 const router = Router();
 
@@ -20,8 +20,8 @@ router.get("/seed", asyncHandler(
 
 router.get("/", asyncHandler(
     async (req, res) => {
-        const players = await MatchModel.find();
-        res.send(sample_matches);
+        const matches = await MatchModel.find();
+        res.send(matches);
     }
 ))
 
@@ -31,5 +31,18 @@ router.get("/:playerID", asyncHandler (
         res.send(player);
     }
 ))
+
+const playDarts = (turn: TURN, score_history: SCORE_HISTORY, leg:LEG, match: Match) => {
+    let bust = false;
+    leg.SERVICE_PLAYER = match.HOME_ID;
+    leg.COUNT=1;
+    match.HOME_SCORE = 0;
+    match.AWAY_SCORE = 0;
+
+    while(match.HOME_SCORE < match.FIRST_TO || match.AWAY_SCORE < match.FIRST_TO) {
+        score_history.PLAYER = leg.SERVICE_PLAYER
+        leg.COUNT++;
+    }
+}
 
 export default router;

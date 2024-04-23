@@ -10,7 +10,7 @@ div{
     border: none;
     height: 3rem;
     width: 20rem;
-    background-color: bisque;
+    background-color: whitesmoke;
     padding: 1.2rem;
     font-size: 1.1rem;
     font-weight: 500;
@@ -24,7 +24,8 @@ div{
     font-size: 1rem;
     border-radius: 0 10rem 10rem 0;
     border: none;
-    background-color: crimson;
+    border-color: grey;
+    background-color: #D6350E;
     color: white;
     opacity: 0.8;
     outline: none;

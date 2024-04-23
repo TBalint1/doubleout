@@ -1,13 +1,14 @@
-
+<button routerLink="/tournaments/new">+ New Tournament</button>
 <ul>
-<default-button text = "+New Tournament" routerLink="/tournaments/new"></default-button>
-<div class="match-container">
+<div class="tournament-container">
     <table>
     <caption></caption>
     <tr *ngFor="let tournaments of tournaments">
-            <a [routerLink]="'/match/' + tournaments.id">
+        <header>{{tournaments.name}}</header>
+            <a>
                 <td>Next match:</td>
                 <td>{{ tournaments.currentRound}}</td>
+                <td routerLink="/tournaments/{{tournaments.id}}">Countinue</td>
             </a>
     </tr>
     </table>

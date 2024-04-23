@@ -24,6 +24,7 @@ import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModu
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { NewTournamentPageComponent } from './components/pages/new-tournament-page/new-tournament-page.component';
 import { SelectInputComponent } from './components/partials/select-input/select-input.component';
+import { PlayerInputComponent } from './components/partials/player-input/player-input.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SelectInputComponent } from './components/partials/select-input/select-
     NotFoundComponent,
     RegisterPageComponent,
     NewTournamentPageComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    PlayerInputComponent
   ],
   imports: [
     BrowserModule,
