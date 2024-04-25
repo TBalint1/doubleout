@@ -13,7 +13,6 @@ export interface Tournament{
     name:string;
     type:string;
     playersCount:number;
-    round:string;
     match:MatchSettings[];
     players:PlayersData[];
     currentRound:string;
@@ -30,7 +29,6 @@ export const TournamentSchema = new Schema<Tournament>(
         name:{type: String, required:true},
         type:{type: String, required:true},
         playersCount:{type: Number, required:true},
-        round:{type: String, required:true},
         match:
         [
             {
@@ -46,8 +44,8 @@ export const TournamentSchema = new Schema<Tournament>(
             },
         ],
         currentRound:{type: String, required:true},
-        winner:{type: String, required:true},
-        runnerUp:{type: String, required:true},
+        winner:{type: String, required:false},
+        runnerUp:{type: String, required:false},
     },{
         toJSON:{
             virtuals:true

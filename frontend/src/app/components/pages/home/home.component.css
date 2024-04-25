@@ -96,42 +96,63 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 24px;
+    font-size: 42px;
     margin: 16px 16px 16px 16px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5rem;
 }
 
 button:hover {
     opacity: 0.9;
 }
 
-ul {
-    display: flex;
-    justify-content: center; /* Módosítás */
-    align-items: flex-start; /* Módosítás */
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    margin: 0; /* Módosítás */;
-}
-
 .tournament-container {
-    width: 40%;
-    background-color: whitesmoke;
-    color: #D6350E;
-    border-radius: 10px;
-    box-shadow: 0 0 5px black;
-    margin-right: 50px;
-}
-.tournament-container header{
-    color: white;
-    background-color: #D6350E;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    width: 40rem;
+    height: 3rem;
+    gap: 1rem;
+    align-self: center;
 }
 
-.tournament-container button { 
-    float: right;
+.tournament-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 4px solid #D6350E;
+    border-radius: 1rem;
+    width: 40rem;
+}
+
+.tournament-container header{
+    width: 40rem;
+    color: white;
+    background-color: #D6350E;
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+}
+
+.tournament-container a {
+    width: 40rem;
+    color: #D6350E;
+    border-radius: 0 0 1rem 1rem;
+    height: 3rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0.5rem;
+}
+.tournament-container button {
+    font-size: 1rem;
+    height: 3rem; 
+    border-radius: 0 0 1rem 0;
     background-color: #D6350E;
     color: white;
+    cursor: pointer;
+    align-content: flex-end;
 }
 

@@ -25,6 +25,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { NewTournamentPageComponent } from './components/pages/new-tournament-page/new-tournament-page.component';
 import { SelectInputComponent } from './components/partials/select-input/select-input.component';
 import { PlayerInputComponent } from './components/partials/player-input/player-input.component';
+import { TournamentBlockComponent } from './components/partials/tournament-block/tournament-block.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PlayerInputComponent } from './components/partials/player-input/player-
     RegisterPageComponent,
     NewTournamentPageComponent,
     SelectInputComponent,
-    PlayerInputComponent
+    PlayerInputComponent,
+    TournamentBlockComponent
   ],
   imports: [
     BrowserModule,

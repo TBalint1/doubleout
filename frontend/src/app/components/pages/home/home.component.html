@@ -1,16 +1,32 @@
-<button routerLink="/tournaments/new">+ New Tournament</button>
+<!-- <button routerLink="/tournaments/new">+ New Tournament</button>
 <ul>
 <div class="tournament-container">
     <table>
-    <caption></caption>
     <tr *ngFor="let tournaments of tournaments">
         <header>{{tournaments.name}}</header>
             <a>
                 <td>Next match:</td>
                 <td>{{ tournaments.currentRound}}</td>
-                <td routerLink="/tournaments/{{tournaments.id}}">Countinue</td>
+                <td><button routerLink="/tournaments/{{tournaments.id}}">Countinue</button></td>
             </a>
     </tr>
     </table>
 </div>
-</ul>
+</ul> -->
+
+<button routerLink="/tournaments/new">+ New Tournament</button>
+<ul class="tournament-container">
+    <ng-container *ngFor="let tournament of tournaments">
+      <div class="tournament-block">
+        <header>{{ tournament.name }}</header>
+        <table>
+          <tr>
+            <td>Next match:</td>
+            <td>{{ tournament.currentRound }}</td>
+            <td><button routerLink="/tournaments/{{ tournament.id }}">Countinue</button></td>
+          </tr>
+        </table>
+      </div>
+    </ng-container>
+  </ul>
+  

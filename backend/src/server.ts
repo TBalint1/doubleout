@@ -12,6 +12,8 @@ import tournamentRouter from './routers/tournament.router';
 const app = express();
 
 app.use(express.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
     credentials:true,
     origin:["http://localhost:4200"]

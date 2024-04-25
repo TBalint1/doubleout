@@ -80,7 +80,7 @@
                 {value: false, label: 'No'},
             ]">
         </select-input>
-        <ng-container *ngFor="let players of fc.playersCount.value">
+        <!-- <ng-container *ngFor="let players of fc.playersCount.value">
             <label for="">{{players}} Players"></label>
             <button type="button" (click)="addPlayer(players)">
                 <text-input
@@ -99,7 +99,7 @@
                 >
                 </select-input>
             </button>
-        </ng-container>        
+        </ng-container>         -->
         <default-button routerLink="/tournaments" text="Create Tournament"></default-button>
         </form>
     </div>
