@@ -26,3 +26,4 @@ export const STATS_BY_ID = STATS_URL + '/';
 export const STATS_BY_MATCH_ID_URL = STATS_URL + '/match/';
 export const STATS_BY_PLAYER_ID_URL = STATS_URL + '/player/';
 export const STATS_BY_TOURNAMENT_ID_URL = STATS_URL + '/tournaments/';
+export const START_MATCH_BY_ID = MATCH_URL + '/onGoing';

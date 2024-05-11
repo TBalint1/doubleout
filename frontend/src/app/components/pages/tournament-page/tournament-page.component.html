@@ -18,7 +18,11 @@
 
                         <a *ngIf="match.winner!==''">
                             <button routerLink="/matches/{{match.id}}">View</button>
-                        </a>                        
+                        </a>  
+                        
+                        <a>
+                            <button routerLink="/matches/onGoing/{{match.id}}">Start</button>
+                        </a>
                     </td>
                 </tr>
             </table>

@@ -4,6 +4,7 @@ import asyncHandler from "express-async-handler";
 import { Leg, Match, NewMatchModel, Turn } from "../models/newMatch.model";
 import { DartsParty } from "../classes/dartsParty";
 import { Stat, StatModel } from "../models/stat.model";
+import { DartsPartyResponse } from "../models/response/dartsPartyResponse";
 
 const router = Router();
 
@@ -76,7 +77,7 @@ router.get(
 // );
 
 router.put(
-  "/:matchID/onGoing",
+  "/onGoing/:matchID",
   asyncHandler(async (req, res) => {
     console.log(req.params.matchID);
     const match = await NewMatchModel.findById(req.params.matchID);
@@ -149,7 +150,7 @@ router.put(
       const matchID = req.params.matchID;
 
       // Mérkőzés adatainak frissítése a DartsParty segítségével
-      const updatedMatch = await dartsParty.start();
+      const updatedMatch = dartsParty.start();
       console.log(updatedMatch);
 
       const data = {
@@ -191,7 +192,7 @@ router.put(
 // );
 
 router.put(
-  "/:matchID/onGoing/throw",
+  "/onGoing/:matchID/throw",
   asyncHandler(async (req, res) => {
     console.log(dartsParty);
     const match = await NewMatchModel.findById(req.params.matchID);
@@ -225,11 +226,8 @@ router.put(
         { playerId: req.body.playerID, matchId: req.params.matchID },
         stat
       );
-      const data = {
-        match: state,
-        stat: stat,
-      };
-      res.send(data);
+      const reponse = new DartsPartyResponse(state, stat);
+      res.send(reponse);
     } else {
       res.send("Invalid turn!");
     }
