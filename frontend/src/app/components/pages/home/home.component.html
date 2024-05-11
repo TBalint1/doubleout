@@ -17,13 +17,13 @@
 <button routerLink="/tournaments/new">+ New Tournament</button>
 <ul class="tournament-container">
     <ng-container *ngFor="let tournament of tournaments">
-      <div class="tournament-block">
+      <div class="tournament-block" *ngIf="tournament.currentRound!='Finished'">
         <header>{{ tournament.name }}</header>
         <table>
           <tr>
             <td>Next match:</td>
             <td>{{ tournament.currentRound }}</td>
-            <td><button routerLink="/tournaments/{{ tournament.id }}">Countinue</button></td>
+            <td><button routerLink="/tournament/{{ tournament.id }}">Countinue</button></td>
           </tr>
         </table>
       </div>

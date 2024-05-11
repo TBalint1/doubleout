@@ -78,7 +78,7 @@ export const MatchSchema = new Schema<Match>(
               ],
             },
         ],
-          WINNER:{type: String,required:true},
+          WINNER:{type: String,required:false},
     },{
         toJSON:{
             virtuals:true

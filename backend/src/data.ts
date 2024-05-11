@@ -705,6 +705,26 @@ export const sample_users: any[] = [
     isAdmin: true 
   }
 ]
+
+export const sample_test: any[] = [
+  {
+    type:"test",
+    count:1,
+    question:false,
+    answer:"true",
+    bot:[
+      {
+        name:"testBot"
+      },
+      {
+        name:"testBot2"
+      },
+      {
+        name:"testBot3"
+      }
+    ]
+  }
+]
     
   
   

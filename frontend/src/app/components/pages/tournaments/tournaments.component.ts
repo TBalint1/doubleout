@@ -12,8 +12,7 @@ import { Tournament } from 'src/app/shared/models/Tournament';
 export class TournamentsComponent implements OnInit {
 
   tournaments:Tournament[] = [];
-
-  constructor(private tournamentsService:TournamentsService, activatedRoute:ActivatedRoute) {
+  constructor(private tournamentsService: TournamentsService, activatedRoute: ActivatedRoute) {
     let tournamentsObservalbe:Observable<Tournament[]>;
     activatedRoute.params.subscribe((params) => {
         tournamentsObservalbe = tournamentsService.getAll();
@@ -22,10 +21,10 @@ export class TournamentsComponent implements OnInit {
           this.tournaments = serverTournaments;
         })
     })
+
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 }

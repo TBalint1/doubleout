@@ -9,7 +9,7 @@
         </div>
 
         <nav>
-            
+            <ul>
             <li *ngIf="!isAuth"><span><a routerLink="/login">Login</a></span></li>
             <li *ngIf="isAuth" class="menu-container"><span><a routerLink="/dashboard">{{user.name}}</a></span></li>
                 <div class="menu">
@@ -18,6 +18,6 @@
                 </div>
             <li><span><a routerLink="/tournaments">Tournaments</a></span></li>
             <li><span><a routerLink="/players">Players</a></span></li>
-            
+            </ul>
         </nav>
     </div>

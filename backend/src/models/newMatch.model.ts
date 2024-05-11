@@ -1,3 +1,5 @@
+import { Schema, model } from "mongoose";
+
 export class Match {
   id: string;
   tournamentId: string;
@@ -96,3 +98,50 @@ export class Turn {
     this.throw3Multiplier = throw3Multiplier;
   }
 }
+
+export const NewMatchSchema = new Schema<Match>(
+  {
+    tournamentId: { type: String, required: true },
+    round: { type: String, required: true },
+    firstTo: { type: Number, required: true },
+    doubleOut: { type: Boolean, required: true },
+    points: { type: Number, required: true },
+    winner: { type: String, required: false },
+    homeId: { type: String, required: true },
+    homeName: { type: String, required: true },
+    homeScore: { type: Number, required: true },
+    awayId: { type: String, required: true },
+    awayName: { type: String, required: true },
+    awayScore: { type: Number, required: true },
+    legs: [
+      {
+        starterPlayer: { type: String, required: true },
+        homePoint: { type: Number, required: true },
+        awayPoint: { type: Number, required: true },
+        winner: { type: String, required: true },
+        turns: [
+          {
+            playerId: { type: String, required: false },
+            throw1Sector: { type: Number, required: false },
+            throw1Multiplier: { type: Number, required: false },
+            throw2Sector: { type: Number, required: false },
+            throw2Multiplier: { type: Number, required: false },
+            throw3Sector: { type: Number, required: false },
+            throw3Multiplier: { type: Number, required: false },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+    timestamps: true,
+  }
+);
+
+export const NewMatchModel = model<Match>("newMatch", NewMatchSchema);

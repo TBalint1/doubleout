@@ -1,3 +1,3 @@
 export class PlayersData {
-    name!:number;
+  name!: string;
 }

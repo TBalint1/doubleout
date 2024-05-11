@@ -72,11 +72,11 @@ header nav a{
     display: none;
   }
   
-  .menu-container:hover .menu{
+.menu-container:hover .menu{
     display: block;
-  }
+}
   
-  .menu a{
+.menu a{
     width: 100%;
     min-width:8rem;
-  }
+}

@@ -8,24 +8,27 @@ import { MatchPageComponent } from './components/pages/match-page/match-page.com
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { NewTournamentPageComponent } from './components/pages/new-tournament-page/new-tournament-page.component';
-
+import { TournamentPageComponent } from './components/pages/tournament-page/tournament-page.component';
+import { TestPageComponent } from './components/pages/test-page/test-page.component';
+import { NewTestPageComponent } from './components/pages/new-test-page/new-test-page.component';
 
 const routes: Routes = [
-  {path: '', component:HomeComponent},
-  {path: 'search/:searchTerm',component:AllPlayersComponent},
-  {path: 'players',component:AllPlayersComponent},
-  {path: 'player/:id', component:PlayerPageComponent},
-  {path: 'tournaments', component:TournamentsComponent},
-  {path: 'match/:id', component:MatchPageComponent},
-  {path: 'login', component:LoginPageComponent},
-  {path: 'register', component:RegisterPageComponent},
-  {path: 'tournaments/new', component:NewTournamentPageComponent},
+  { path: '', component: HomeComponent },
+  { path: 'search/:searchTerm', component: AllPlayersComponent },
+  { path: 'players', component: AllPlayersComponent },
+  { path: 'player/:id', component: PlayerPageComponent },
+  { path: 'tournaments', component: TournamentsComponent },
+  { path: 'matches/:id', component: MatchPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
+  { path: 'tournaments/new', component: NewTournamentPageComponent },
+  { path: 'tournament/:id', component: TournamentPageComponent },
+  { path: 'test', component: TestPageComponent },
+  { path: 'test/new', component: NewTestPageComponent },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

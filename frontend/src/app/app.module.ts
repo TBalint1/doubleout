@@ -26,6 +26,9 @@ import { NewTournamentPageComponent } from './components/pages/new-tournament-pa
 import { SelectInputComponent } from './components/partials/select-input/select-input.component';
 import { PlayerInputComponent } from './components/partials/player-input/player-input.component';
 import { TournamentBlockComponent } from './components/partials/tournament-block/tournament-block.component';
+import { TournamentPageComponent } from './components/pages/tournament-page/tournament-page.component';
+import { TestPageComponent } from './components/pages/test-page/test-page.component';
+import { NewTestPageComponent } from './components/pages/new-test-page/new-test-page.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { TournamentBlockComponent } from './components/partials/tournament-block
     NewTournamentPageComponent,
     SelectInputComponent,
     PlayerInputComponent,
-    TournamentBlockComponent
+    TournamentBlockComponent,
+    TournamentPageComponent,
+    TestPageComponent,
+    NewTestPageComponent,
   ],
   imports: [
     BrowserModule,

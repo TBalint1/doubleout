@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+        Type:
+        <input type="text" formControlName="type">
+    </label>
+    <label>
+        Count:
+        <input type="number" formControlName="count">
+    </label>
+    <label>
+        Question:
+        <select formControlName="question">
+            <option value="false">false</option>
+            <option value="true">true</option>
+        </select>
+    </label>
+    <label>
+        Answer:
+        <input type="text" formControlName="answer">
+    </label>    
+    <div formArrayName="bot">
+        <div *ngFor="let bot of bot.controls; let i = index;">
+            <div [formGroupName]="i">
+                <label>
+                    Name:
+                    <input type="text" formControlName="name">
+                    <button type="button" (click)="removeBot(i)">Bot eltávolítása</button>
+                </label>
+            </div>
+        </div>
+    </div>
+    <button type="button" (click)="addBot()">Új bot hozzáadása</button>
+    <default-button text="Submit"></default-button>
+</form>

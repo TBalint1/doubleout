@@ -11,7 +11,7 @@ export class SelectInputComponent implements OnInit {
   @Input() showErrorsWhen: boolean = true;
   @Input() label!: string;
   @Input() options: any[] = [];
-  @Input() type: 'text' | 'number' = 'text';
+  @Input() type: 'text' | 'number' = 'text' ;
 
   get formControl(){
     return this.control as FormControl;
