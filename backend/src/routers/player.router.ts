@@ -2,7 +2,6 @@ import { Router } from "express";
 import { sample_players } from "../data";
 import asyncHandler from "express-async-handler";
 import { PlayerModel } from "../models/player.model";
-import { MatchModel } from "../models/match.model";
 import { NewMatchModel } from "../models/newMatch.model";
 import { StatModel } from "../models/stat.model";
 
@@ -34,7 +33,7 @@ router.get(
   "/search/:searchTerm",
   asyncHandler(async (req, res) => {
     const searchRegex = new RegExp(req.params.searchTerm, "i");
-    const players = await PlayerModel.find({ NAME: { $regex: searchRegex } });
+    const players = await PlayerModel.find({ name: { $regex: searchRegex } });
     res.send(players);
   })
 );
@@ -43,6 +42,7 @@ router.get(
   "/:playerID",
   asyncHandler(async (req, res) => {
     const player = await PlayerModel.findById(req.params.playerID);
+    const stats = await StatModel.find({ playerId: req.params.playerID });
     const matches = await NewMatchModel.find(
       {
         homeId: req.params.playerID,
@@ -50,11 +50,10 @@ router.get(
         awayId: req.params.playerID,
       }
     );
-    const stats = await StatModel.find({ playerId: req.params.playerID });
     const data = {
       player: player,
-      matches: matches,
       stats: stats,
+      matches: matches,
     };
     res.send(data);
   })

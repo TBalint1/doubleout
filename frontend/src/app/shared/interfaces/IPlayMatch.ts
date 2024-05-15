@@ -1,4 +1,5 @@
 export interface IPlayMatch {
+  playerID: string;
   throw1Sector: number;
   throw1Multiplier: number;
   throw2Sector: number;

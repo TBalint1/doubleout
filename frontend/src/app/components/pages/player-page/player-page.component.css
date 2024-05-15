@@ -1,0 +1,70 @@
+.header-container{
+    margin: 40px;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #D6350E;
+}
+
+.name{
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+}
+
+.statistics-container{
+    width: 25rem;
+    margin: 40px;
+}
+
+.statistics-container header{
+    background-color: #D6350E;
+    border-radius: 1rem 1rem 0 0;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+}
+
+.statistics-container table{
+    width: 25rem;
+    border: 4px solid #D6350E;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.matches-container{
+    width: 25rem;
+    margin: 40px;
+    float: right;
+}
+
+.matches-container header{
+    background-color: #D6350E;
+    border-radius: 1rem 1rem 0 0;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+}
+
+.match-block table{
+    width: 25rem;
+    border: 4px solid #D6350E;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.match-block button{
+    background-color: #D6350E;
+    border-radius: 0 0 1rem ;
+    border: none;
+    color: #fff;
+    padding: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.match-block tr{
+    padding: 0.5rem;
+    text-align: center;
+    vertical-align:middle;
+}

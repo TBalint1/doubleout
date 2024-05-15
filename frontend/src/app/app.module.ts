@@ -29,6 +29,7 @@ import { TournamentBlockComponent } from './components/partials/tournament-block
 import { TournamentPageComponent } from './components/pages/tournament-page/tournament-page.component';
 import { TestPageComponent } from './components/pages/test-page/test-page.component';
 import { NewTestPageComponent } from './components/pages/new-test-page/new-test-page.component';
+import { DartsPartyPageComponent } from './components/pages/darts-party-page/darts-party-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { NewTestPageComponent } from './components/pages/new-test-page/new-test-
     TournamentPageComponent,
     TestPageComponent,
     NewTestPageComponent,
+    DartsPartyPageComponent,
   ],
   imports: [
     BrowserModule,

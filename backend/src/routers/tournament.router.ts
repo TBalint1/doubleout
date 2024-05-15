@@ -1,18 +1,11 @@
 import { Router } from "express";
 import { sample_tournaments } from "../data";
 import asyncHandler from "express-async-handler";
-import {
-  Tournament,
-  TournamentModel,
-  PlayersData,
-} from "../models/tournament.model";
+import { Tournament, TournamentModel } from "../models/tournament.model";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
-import jwt from "jsonwebtoken";
 import { Player, PlayerModel } from "../models/player.model";
-//import { Match,LEG, SCORE_HISTORY, TURN, MatchModel } from "../models/match.model";
 import { Match, NewMatchModel, Turn } from "../models/newMatch.model";
 import { DartsParty } from "../classes/dartsParty";
-import { Stat, StatModel } from "../models/stat.model";
 
 const router = Router();
 
@@ -63,25 +56,6 @@ router.get(
     res.send(data);
   })
 );
-
-// router.get(
-//   "/:matchID",
-//   asyncHandler(async (req, res) => {
-//     const match = await MatchModel.findById(req.params.matchID);
-//     res.send(match);
-//   })
-// );
-
-// router.get(
-//   "/:tournamentID/match/:matchID",
-//   asyncHandler(async (req, res) => {
-//     const match = await MatchModel.find({
-//       TOURNAMENT_ID: req.params.tournamentID,
-//       ID: req.params.matchID,
-//     });
-//     res.send(match);
-//   })
-// );
 
 let dartsParty: DartsParty;
 
@@ -158,64 +132,6 @@ router.post(
       console.log("Parsed Match Request:", newMatch);
     }
 
-    // let dbStats: Stat[] = [];
-
-    // for (let i = 0; i < dbMatches.length; i++) {
-    //   const homeStat = new Stat(
-    //     "",
-    //     dbTournament.id,
-    //     dbMatches[i].id,
-    //     dbMatches[i].homeId,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0
-    //   );
-
-    //   const dbHomeStat = await StatModel.create(homeStat);
-    //   dbStats.push(dbHomeStat);
-    //   console.log("Parsed Stat Request:", homeStat);
-
-    //   const awayStat = new Stat(
-    //     "",
-    //     dbTournament.id,
-    //     dbMatches[i].id,
-    //     dbMatches[i].awayId,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0,
-    //     0
-    //   );
-
-    //   const dbAwayStat = await StatModel.create(awayStat);
-    //   dbStats.push(dbAwayStat);
-    //   console.log("Parsed Stat Request:", awayStat);
-    // }
-
     console.log("Parsed Tournament Request:", newTournament);
 
     const Data = {
@@ -226,51 +142,5 @@ router.post(
     res.send(Data);
   })
 );
-
-// const generateTokenReponse = (tournament: Tournament) => {
-//   const token = jwt.sign(
-//     {
-//       name: tournament.name,
-//     },
-//     process.env.JWT_SECRET!,
-//     {
-//       expiresIn: "30d",
-//     }
-//   );
-
-//   return {
-//     id: tournament.id,
-//     name: tournament.name,
-//     type: tournament.type,
-//     playersCount: tournament.playersCount,
-//     match: tournament.match,
-//     players: tournament.players,
-//     currentRound: tournament.currentRound,
-//     winner: tournament.winner,
-//     runnerUp: tournament.runnerUp,
-//     token: token,
-//   };
-// };
-
-// const generateTokenReponseForPlayer = (players: Player) => {
-//   const token = jwt.sign(
-//     {
-//       name: players.name,
-//     },
-//     process.env.JWT_SECRET!,
-//     {
-//       expiresIn: "30d",
-//     }
-//   );
-//   return {
-//     id: players.id,
-//     name: players.name,
-//     tournament_win: players.tournament_win,
-//     tournament_lose: players.tournament_lose,
-//     match_win: players.match_win,
-//     match_lose: players.match_lose,
-//     token: token,
-//   };
-// };
 
 export default router;

@@ -14,6 +14,8 @@ import {
 } from '../shared/constants/urls';
 import { Stat } from '../shared/models/Stat';
 import { IPlayMatch } from '../shared/interfaces/IPlayMatch';
+import { DartsPartyResponse } from '../shared/models/DartsParty';
+import { MatchWithStats } from '../shared/models/MatchWithStats';
 
 const MATCH_KEY = 'Match';
 @Injectable({
@@ -36,8 +38,12 @@ export class MatchesService {
     return sample_tournaments;
   }
 
-  getMatchByID(matchID: string): Observable<{ match: Match; stats: Stat[] }> {
-    return this.http.get<{ match: Match; stats: Stat[] }>(MATCH_URL + matchID);
+  getMatchByID(matchID: string): Observable<MatchWithStats> {
+    return this.http.get<MatchWithStats>(MATCH_URL + matchID);
+  }
+
+  countinueMatch(matchID: string): Observable<MatchWithStats> {
+    return this.http.get<MatchWithStats>(MATCH_URL + matchID + '/onGoing');
   }
 
   getAllMatchByTournamentID(tournamentID: string): Observable<Match[]> {
@@ -48,25 +54,33 @@ export class MatchesService {
     return this.http.get<Match[]>(MATCH_URL, { params });
   }
 
-  startMatch(matchID: string): Observable<Match> {
-    return this.http.put<Match>(MATCH_URL + matchID + '/onGoing', {}).pipe(
-      tap({
-        next: (match) => {
-          this.setMatchToLocaleStorage(match);
-          this.matchSubject.next(match);
-        },
-      })
-    );
-  }
-
-  dartsParty(playMatch: IPlayMatch, matchID: string): Observable<Match> {
+  startMatch(matchID: string): Observable<DartsPartyResponse> {
     return this.http
-      .put<Match>(MATCH_URL + matchID + '/onGoing/throw', playMatch)
+      .put<DartsPartyResponse>(MATCH_URL + matchID + '/onGoing', {})
       .pipe(
         tap({
-          next: (match) => {
-            this.setMatchToLocaleStorage(match);
-            this.matchSubject.next(match);
+          next: (dartsPartyResponse) => {
+            this.setMatchToLocaleStorage(dartsPartyResponse.match);
+            this.matchSubject.next(dartsPartyResponse.match);
+          },
+        })
+      );
+  }
+
+  dartsParty(
+    playMatch: IPlayMatch,
+    matchID: string
+  ): Observable<DartsPartyResponse> {
+    return this.http
+      .put<DartsPartyResponse>(
+        MATCH_URL + matchID + '/onGoing/throw',
+        playMatch
+      )
+      .pipe(
+        tap({
+          next: (dartsPartyResponse) => {
+            this.setMatchToLocaleStorage(dartsPartyResponse.match);
+            this.matchSubject.next(dartsPartyResponse.match);
           },
         })
       );

@@ -19,7 +19,6 @@ export class Stat {
   numberOf2DartCheckouts: number;
   numberOf1DartCheckouts: number;
   triple20s: number;
-  breaks: number;
   percentageOf180PerLeg: number;
 
   constructor(
@@ -41,7 +40,6 @@ export class Stat {
     numberOf2DartCheckouts: number,
     numberOf1DartCheckouts: number,
     triple20s: number,
-    breaks: number,
     percentageOf180PerLeg: number
   ) {
     this.id = id;
@@ -62,7 +60,6 @@ export class Stat {
     this.numberOf2DartCheckouts = numberOf2DartCheckouts;
     this.numberOf1DartCheckouts = numberOf1DartCheckouts;
     this.triple20s = triple20s;
-    this.breaks = breaks;
     this.percentageOf180PerLeg = percentageOf180PerLeg;
   }
 }
@@ -86,7 +83,6 @@ export const StatSchema = new Schema<Stat>(
     numberOf2DartCheckouts: { type: Number, required: true },
     numberOf1DartCheckouts: { type: Number, required: true },
     triple20s: { type: Number, required: true },
-    breaks: { type: Number, required: true },
     percentageOf180PerLeg: { type: Number, required: true },
   },
   {

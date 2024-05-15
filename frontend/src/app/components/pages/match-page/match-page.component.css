@@ -1,0 +1,30 @@
+.home-container {
+    padding-left: 10rem;
+    width: 30%;
+    text-align: center;
+}
+
+.away-container {
+    float: right;
+    padding-right: 10rem;
+    width: 30%;
+    text-align: center;
+}
+
+.Home-Player,
+.Away-Player {
+    font-size: 48px;
+}
+
+.Home-Score,
+.Away-Score {
+    font-size: 38px;
+}
+.actions-container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 3rem;
+}

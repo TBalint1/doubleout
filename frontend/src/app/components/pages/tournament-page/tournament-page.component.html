@@ -1,5 +1,4 @@
-<title>{{tournament.name}}</title>
-<div>Tournament: {{tournament.name}}</div>
+<div class="tournament-info">Tournament: {{tournament.name}}</div>
 <ul class="match-container">
     <ng-container *ngFor="let match of matches">
         <div class="match-block">
@@ -8,17 +7,11 @@
                 <tr>
                     <td>{{match.homeName}}</td>
                     <td>{{match.homeScore}}</td>
-                    <span>-</span>
+                    <td>-</td>
                     <td>{{match.awayScore}}</td>
                     <td>{{match.awayName}}</td>
                     <td>
-                        <a *ngIf="match.winner===''">
-                            <button routerLink="/matches/{{match.id}}">Countinue</button>
-                        </a>
-
-                        <a *ngIf="match.winner!==''">
-                            <button routerLink="/matches/{{match.id}}">View</button>
-                        </a>                        
+                        <button routerLink="/matches/{{match.id}}">View</button>
                     </td>
                 </tr>
             </table>

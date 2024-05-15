@@ -11,12 +11,13 @@ import { NewTournamentPageComponent } from './components/pages/new-tournament-pa
 import { TournamentPageComponent } from './components/pages/tournament-page/tournament-page.component';
 import { TestPageComponent } from './components/pages/test-page/test-page.component';
 import { NewTestPageComponent } from './components/pages/new-test-page/new-test-page.component';
+import { DartsPartyPageComponent } from './components/pages/darts-party-page/darts-party-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search/:searchTerm', component: AllPlayersComponent },
   { path: 'players', component: AllPlayersComponent },
-  { path: 'player/:id', component: PlayerPageComponent },
+  { path: 'players/:id', component: PlayerPageComponent },
   { path: 'tournaments', component: TournamentsComponent },
   { path: 'matches/:id', component: MatchPageComponent },
   { path: 'login', component: LoginPageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'tournament/:id', component: TournamentPageComponent },
   { path: 'test', component: TestPageComponent },
   { path: 'test/new', component: NewTestPageComponent },
+  { path: 'matches/:id/onGoing', component: DartsPartyPageComponent },
 ];
 
 @NgModule({

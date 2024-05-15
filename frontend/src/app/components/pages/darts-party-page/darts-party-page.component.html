@@ -1,0 +1,165 @@
+<body>
+    <div class="home-container">
+        <div class="Home-Player">{{match.homeName}}</div>
+        <div class="Home-Score">{{match.homeScore}}</div>
+        <div class="Home-Point">{{currentLeg.homePoint}}</div>
+        <div class="Home-Throws" *ngFor="let homeThrow of homeThrows; let i = index;">{{homeThrow}}</div>
+    </div>
+    <div class="away-container">
+        <div class="Away-Player">{{match.awayName}}</div>
+        <div class="Away-Score">{{match.awayScore}}</div>
+        <div class="Away-Point">{{currentLeg.awayPoint}}</div>
+        <div *ngFor="let awayThrow of awayThrows; let i = index;">{{awayThrow}}</div>
+    </div>
+    <div class="throw-container">
+        <div class="info">Your Turn: <span></span>{{currentPlayerName}}</div>
+        <form [formGroup]="newThorwForm">
+        <label>Dart #1:
+            <select formControlName="throw1Sector">
+                <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=25>25</option>
+            </select>
+            x
+            <select formControlName="throw1Multiplier">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select>
+        </label>
+        <label>Dart #2:
+            <select formControlName="throw2Sector">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+                <option value=16>16</option>
+                <option value=17>17</option>
+                <option value=18>18</option>
+                <option value=19>19</option>
+                <option value=20>20</option>
+                <option value=25>25</option>
+            </select>
+            x
+            <select formControlName="throw2Multiplier">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select>
+        </label>
+        <label>Dart #3:
+            <select formControlName="throw3Sector">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+                <option value=16>16</option>
+                <option value=17>17</option>
+                <option value=18>18</option>
+                <option value=19>19</option>
+                <option value=20>20</option>
+                <option value=25>25</option>
+            </select>
+            x
+            <select formControlName="throw3Multiplier">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select>
+        </label>
+            <button *ngIf="match.homeScore < match.firstTo || match.awayScore < match.firstTo" type="throw" (click)="throw()">Throw</button>
+            <button *ngIf="match.homeScore >= match.firstTo || match.awayScore >= match.firstTo" type="throw" routerLink="/matches/{{match.id}}">Finish</button>
+        </form>
+    </div>
+    <div class="home-stats">
+        <div class="home-average">{{homeStat.average}}</div>
+        <div class="home-checkouts">{{homeStat.checkouts * 100}} %</div>
+        <div class="home-180">{{homeStat.numberOf180s}}</div>
+        <div class="home-140plus">{{homeStat.numberOf140plus}}</div>
+        <div class="home-100plus">{{homeStat.numberOf100plus}}</div>
+        <div class="home-highestcheckout">{{homeStat.highestCheckout}}</div>
+        <div class="home-9dartaverage">{{homeStat.first9DartsAverage}}</div>
+        <div class="home-firstDartAverage">{{homeStat.firstDartAvergrage}}</div>
+        <div class="home-secondDartAverage">{{homeStat.secondDartAverage}}</div>
+        <div class="home-thirdDartAverage">{{homeStat.thirdDartAverage}}</div>
+        <div class="home-numberOf3DartCheckouts">{{homeStat.numberOf3DartCheckouts}}</div>
+        <div class="home-numberOf2DartCheckouts">{{homeStat.numberOf2DartCheckouts}}</div>
+        <div class="home-numberOf1DartCheckouts">{{homeStat.numberOf1DartCheckouts}}</div>
+        <div class="home-triple20s">{{homeStat.triple20s}}</div>
+        <div class="home-percentageOf180">{{homeStat.percentageOf180PerLeg * 100}} %</div>
+    </div>
+    <div class="away-stats">
+        <div class="away-average">{{awayStat.average}}</div>
+        <div class="away-checkouts">{{awayStat.checkouts * 100}} %</div>
+        <div class="away-180">{{awayStat.numberOf180s}}</div>
+        <div class="away-140plus">{{awayStat.numberOf140plus}}</div>
+        <div class="away-100plus">{{awayStat.numberOf100plus}}</div>
+        <div class="away-highestcheckout">{{awayStat.highestCheckout}}</div>
+        <div class="away-9dartaverage">{{awayStat.first9DartsAverage}}</div>
+        <div class="away-firstDartAverage">{{awayStat.firstDartAvergrage}}</div>
+        <div class="away-secondDartAverage">{{awayStat.secondDartAverage}}</div>
+        <div class="away-thirdDartAverage">{{awayStat.thirdDartAverage}}</div>
+        <div class="away-numberOf3DartCheckouts">{{awayStat.numberOf3DartCheckouts}}</div>
+        <div class="away-numberOf2DartCheckouts">{{awayStat.numberOf2DartCheckouts}}</div>
+        <div class="away-numberOf1DartCheckouts">{{awayStat.numberOf1DartCheckouts}}</div>
+        <div class="away-triple20s">{{awayStat.triple20s}}</div>
+        <div class="away-percentageOf180">{{awayStat.percentageOf180PerLeg * 100}} %</div>
+    </div>
+    <div class="Topics">
+        <div>Average</div>
+        <div>Checkouts</div>
+        <div>180's</div>
+        <div>140+</div>
+        <div>100+</div>
+        <div>Highest Checkout</div>
+        <div>First 9 Darts Average</div>
+        <div>First Dart Average</div>
+        <div>Second Dart Average</div>
+        <div>Third Dart Average</div>
+        <div>3 Darts Checkouts</div>
+        <div>2 Darts Checkouts</div>
+        <div>1 Dart Checkouts</div>
+        <div>Number of triple 20s</div>
+        <div>Percentage of 180s</div>
+    </div>
+</body>

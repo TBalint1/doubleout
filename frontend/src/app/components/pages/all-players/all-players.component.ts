@@ -7,29 +7,30 @@ import { Player } from 'src/app/shared/models/Player';
 @Component({
   selector: 'app-all-players',
   templateUrl: './all-players.component.html',
-  styleUrls: ['./all-players.component.css']
+  styleUrls: ['./all-players.component.css'],
 })
 export class AllPlayersComponent implements OnInit {
+  players: Player[] = [];
 
-  players:Player[] = [];
-
-  constructor(private allPlayersService: AllPlayersService, activatedRoute:ActivatedRoute) {
-    let playersObservable:Observable<Player[]>
+  constructor(
+    private allPlayersService: AllPlayersService,
+    activatedRoute: ActivatedRoute
+  ) {
+    let playersObservable: Observable<Player[]>;
     activatedRoute.params.subscribe((params) => {
-      if(params.searchTerm)
-      playersObservable = this.allPlayersService.getAllPlayersBySearchTerm(params.searchTerm);
-      else
-      playersObservable = allPlayersService.getAll();
+      if (params.searchTerm) {
+        playersObservable = this.allPlayersService.getAllPlayersBySearchTerm(
+          params.searchTerm
+        );
+      } else {
+        playersObservable = this.allPlayersService.getAll();
+      }
 
       playersObservable.subscribe((serverPlayers) => {
         this.players = serverPlayers;
-      })
-    })
-
-   }
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+      });
+    });
   }
 
+  ngOnInit(): void {}
 }

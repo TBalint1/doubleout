@@ -1,23 +1,27 @@
 <header>
-    <div class="inner">
-        <div class="logo">
-            <div>
-                <a routerLink="/">
-                    <img src="assets/doubleout_logo.png" alt="DoubleOut">
-                </a>
+    <div class="container">
+      <a routerLink="/" class="logo">
+        <img src="assets/doubleout_logo.png" alt="DoubleOut">
+      </a>
+      <nav>
+        <ul>
+          <li *ngIf="!isAuth">
+            <a routerLink="/login">Login</a>
+          </li>
+          <li *ngIf="isAuth" class="menu-container">
+            <a routerLink="/dashboard">{{user.name}}</a>
+            <div class="menu">
+              <a routerLink="/profile">Profile</a>
+              <a (click)="logout()">Logout</a>
             </div>
-        </div>
-
-        <nav>
-            <ul>
-            <li *ngIf="!isAuth"><span><a routerLink="/login">Login</a></span></li>
-            <li *ngIf="isAuth" class="menu-container"><span><a routerLink="/dashboard">{{user.name}}</a></span></li>
-                <div class="menu">
-                    <a routerLink="/profile">Profile</a>
-                    <a (click)="logout()">Logout</a>
-                </div>
-            <li><span><a routerLink="/tournaments">Tournaments</a></span></li>
-            <li><span><a routerLink="/players">Players</a></span></li>
-            </ul>
-        </nav>
+          </li>
+          <li>
+            <a routerLink="/tournaments">Tournaments</a>
+          </li>
+          <li>
+            <a routerLink="/players">Players</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </header>

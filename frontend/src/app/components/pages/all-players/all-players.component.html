@@ -3,12 +3,12 @@
 [visible]="!players || !players.length"
 resetLinkText="Reset Search">
 </app-not-found>
-<ul>
-    <li *ngFor="let player of players">
-        <a routerLink="/player/{{player.id}}">
-                <div class="name">
-                    {{player.name}}
-                </div>      
+<ul class="player-container">
+    <li class="player-block" *ngFor="let player of players">
+        <a routerLink="/players/{{player.id}}">
+            <div class="name">
+                {{player.name}}
+            </div>     
         </a>
     </li>
 </ul>

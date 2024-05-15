@@ -35,11 +35,36 @@ router.get(
   "/:matchID",
   asyncHandler(async (req, res) => {
     const match = await NewMatchModel.findById(req.params.matchID);
+    const homeStat = await StatModel.findOne(
+      { matchId: req.params.matchID } && { playerId: match?.homeId }
+    );
+    const awayStat = await StatModel.findOne(
+      { matchId: req.params.matchID } && { playerId: match?.awayId }
+    );
+    const data = {
+      match: match,
+      homeStat: homeStat,
+      awayStat: awayStat,
+    };
+    res.send(data);
+  })
+);
+
+router.get(
+  "/:matchID/onGoing",
+  asyncHandler(async (req, res) => {
+    const match = await NewMatchModel.findById(req.params.matchID);
     const stats = await StatModel.find({ matchId: req.params.matchID });
     const data = {
       match: match,
       stats: stats,
     };
+    if (match === null) {
+      console.log("null");
+    } else {
+      dartsParty = new DartsParty(match, stats[0], stats[1]);
+    }
+
     res.send(data);
   })
 );
@@ -105,7 +130,6 @@ router.put(
         0,
         0,
         0,
-        0,
         0
       );
 
@@ -133,14 +157,11 @@ router.put(
         0,
         0,
         0,
-        0,
         0
       );
 
       const dbAwayStat = await StatModel.create(awayStat);
       dbStats.push(dbAwayStat);
-      //const homeStat = StatModel.findOne({ playerId: match.homeId });
-      //const awayStat = StatModel.findOne({ playerId: match.awayId });
       dartsParty = new DartsParty(match, homeStat, awayStat);
     }
     console.log(match);
@@ -148,7 +169,6 @@ router.put(
       console.log("in try");
       const matchID = req.params.matchID;
 
-      // Mérkőzés adatainak frissítése a DartsParty segítségével
       const updatedMatch = await dartsParty.start();
       console.log(updatedMatch);
 
@@ -157,9 +177,8 @@ router.put(
         stats: dbStats,
       };
 
-      // Mérkőzés frissítése az adatbázisban
       await NewMatchModel.findByIdAndUpdate(matchID, updatedMatch);
-      res.send(data); // Visszaküldjük a frissített mérkőzés adatait
+      res.send(data);
     } catch (error) {
       console.error("Hiba történt a mérkőzés frissítése során:", error);
       res.status(500).send("Hiba történt a mérkőzés frissítése során.");

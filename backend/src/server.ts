@@ -6,7 +6,6 @@ import playerRouter from "./routers/player.router";
 import { dbConnect } from "./configs/database.config";
 dbConnect();
 import userRouter from "./routers/user.router";
-import matchRouter from "./routers/match.router";
 import tournamentRouter from "./routers/tournament.router";
 import testRouter from "./routers/test.router";
 import partyRouter from "./routers/match.party.router";

@@ -1,4 +1,3 @@
-import { TURN } from "../models/match.model";
 import { Leg, Match, Turn } from "../models/newMatch.model";
 import { Stat } from "../models/stat.model";
 
@@ -34,6 +33,16 @@ export class DartsParty {
   awayPossibleCheckoutCount: number;
   homeCheckoutCount: number;
   awayCheckoutCount: number;
+  homeSumPoint: number;
+  awaySumPoint: number;
+  homeDart1Sum: number;
+  homeDart2Sum: number;
+  homeDart3Sum: number;
+  awayDart1Sum: number;
+  awayDart2Sum: number;
+  awayDart3Sum: number;
+  previousHomePoint: number;
+  previousAwayPoint: number;
   constructor(match: Match, homeStat: Stat, awayStat: Stat) {
     this.match = match;
     this.homeStat = homeStat;
@@ -52,6 +61,16 @@ export class DartsParty {
     this.awayPossibleCheckoutCount = 0;
     this.homeCheckoutCount = 0;
     this.awayCheckoutCount = 0;
+    this.homeSumPoint = 0;
+    this.awaySumPoint = 0;
+    this.homeDart1Sum = 0;
+    this.homeDart2Sum = 0;
+    this.homeDart3Sum = 0;
+    this.awayDart1Sum = 0;
+    this.awayDart2Sum = 0;
+    this.awayDart3Sum = 0;
+    this.previousHomePoint = 0;
+    this.previousAwayPoint = 0;
   }
 
   start(): Match {
@@ -72,20 +91,12 @@ export class DartsParty {
     const thrownPoints = dart1 + dart2 + dart3;
     const previousTurn =
       this.currentLeg.turns?.[this.currentLeg.turns.length - 1]?.playerId;
-    console.log(previousTurn);
-    console.log(turn.playerId);
     if (previousTurn === undefined || previousTurn !== turn.playerId) {
       let currentPlayer = turn.playerId;
-      console.log("Bent vagyok");
-      console.log(this.currentLeg.turns);
       this.currentLeg.turns.push(turn);
-      console.log(this.currentLeg.turns);
-      console.log("Jelenlegi Leg");
-      console.log(this.currentLeg);
-      console.log("Meccs");
-      console.log(this.match);
       if (this.match.doubleOut === true) {
         if (currentPlayer === this.match.homeId) {
+          this.previousHomePoint = this.currentLeg.homePoint;
           const currentPoint = this.currentLeg.homePoint - dart1;
           if (currentPoint === 0 && turn.throw1Multiplier === 2) {
             this.currentLeg.winner = this.match.homeId;
@@ -119,6 +130,7 @@ export class DartsParty {
           }
           currentPlayer = this.match.awayId;
         } else {
+          this.previousAwayPoint = this.currentLeg.awayPoint;
           const currentPoint = this.currentLeg.awayPoint - dart1;
           if (currentPoint === 0 && turn.throw1Multiplier === 2) {
             this.currentLeg.winner = this.match.awayId;
@@ -154,9 +166,8 @@ export class DartsParty {
         }
       } else {
         if (currentPlayer === this.match.homeId) {
+          this.previousHomePoint = this.currentLeg.homePoint;
           const currentPoint = this.currentLeg.homePoint - dart1;
-          console.log("Első nyíl eldobva:", currentPoint);
-          console.log("Meccs 1:", this.match);
           if (currentPoint === 0) {
             this.currentLeg.winner = this.match.homeId;
             this.currentLeg.homePoint = currentPoint;
@@ -164,8 +175,6 @@ export class DartsParty {
             this.startNewLegIfpossible();
           } else if (currentPoint > 0) {
             const currenPoint = currentPoint - dart2;
-            console.log("Második nyíl eldobva:", currenPoint);
-            console.log("Meccs 2:", this.match);
             if (currenPoint === 0) {
               this.currentLeg.winner = this.match.homeId;
               this.currentLeg.homePoint = currentPoint;
@@ -173,8 +182,6 @@ export class DartsParty {
               this.startNewLegIfpossible();
             } else if (currenPoint > 0) {
               const currentPoint = currenPoint - dart3;
-              console.log("Harmadik nyíl eldobva:", currentPoint);
-              console.log("Meccs 3:", this.match);
               if (currentPoint === 0) {
                 this.currentLeg.winner = this.match.homeId;
                 this.currentLeg.homePoint = currentPoint;
@@ -188,12 +195,12 @@ export class DartsParty {
                 ) {
                 }
                 this.currentLeg.homePoint = currentPoint;
-                console.log(this.currentLeg.homePoint);
               }
             }
           }
           currentPlayer = this.match.awayId;
         } else {
+          this.previousAwayPoint = this.currentLeg.awayPoint;
           const currentPoint = this.currentLeg.awayPoint - dart1;
           if (currentPoint === 0) {
             this.currentLeg.winner = this.match.awayId;
@@ -248,7 +255,6 @@ export class DartsParty {
         this.servicePlayer = this.match.homeId;
       }
       this.match.legs.push(this.currentLeg);
-      console.log(this.currentLeg);
       this.currentLeg = new Leg(
         this.servicePlayer,
         "",
@@ -257,7 +263,6 @@ export class DartsParty {
         []
       );
       this.match.legs.push(this.currentLeg);
-      console.log(this.currentLeg);
     }
   }
 
@@ -268,16 +273,38 @@ export class DartsParty {
     const thrownPoint = dart1 + dart2 + dart3;
     if (turn.playerId === this.match.homeId) {
       this.homeTurnCount++;
-      this.homeStat.average =
-        (this.homeStat.average + thrownPoint) / this.homeTurnCount;
-
+      this.homeSumPoint += thrownPoint;
+      this.homeDart1Sum += dart1;
+      this.homeDart2Sum += dart2;
+      this.homeDart3Sum += dart3;
+      console.log(
+        "HomeTurn:",
+        this.homeTurnCount,
+        "HomeSumPoint:",
+        this.homeSumPoint
+      );
+      this.homeStat.average = this.homeSumPoint / this.homeTurnCount;
+      console.log(
+        "CurrentHomePoint:",
+        this.currentLeg.homePoint,
+        "thrownPoint:",
+        thrownPoint,
+        "PreviousHomePoint:",
+        this.previousHomePoint
+      );
       if (
-        possible3DartsCheckouts.includes(this.currentLeg.homePoint) ||
-        possible2DartsCheckouts.includes(this.currentLeg.homePoint) ||
-        possible1DartCheckout.includes(this.currentLeg.homePoint)
+        possible3DartsCheckouts.includes(this.previousHomePoint) ||
+        possible2DartsCheckouts.includes(this.previousHomePoint) ||
+        possible1DartCheckout.includes(this.previousHomePoint)
       ) {
         this.homePossibleCheckoutCount++;
-        if (this.currentLeg.homePoint === thrownPoint) {
+        console.log(
+          "HomePossibleCheckoutCount:",
+          this.homePossibleCheckoutCount
+        );
+        if (this.previousHomePoint === thrownPoint) {
+          this.homeCheckoutCount++;
+          console.log("HomeCheckoutCount:", this.homeCheckoutCount);
           this.homeStat.checkouts =
             this.homeCheckoutCount / this.homePossibleCheckoutCount;
           if (thrownPoint > this.homeStat.highestCheckout) {
@@ -304,25 +331,23 @@ export class DartsParty {
 
       if (this.homeTurnCount < 4) {
         this.homeStat.first9DartsAverage =
-          (this.homeStat.first9DartsAverage + thrownPoint) / this.homeTurnCount;
+          this.homeSumPoint / this.homeTurnCount;
       }
 
-      this.homeStat.firstDartAvergrage =
-        (this.homeStat.firstDartAvergrage + dart1) / this.homeTurnCount;
-      this.homeStat.secondDartAverage =
-        (this.homeStat.secondDartAverage + dart2) / this.homeTurnCount;
-      this.homeStat.thirdDartAverage =
-        (this.homeStat.thirdDartAverage + dart3) / this.homeTurnCount;
+      this.homeStat.firstDartAvergrage = this.homeDart1Sum / this.homeTurnCount;
+      this.homeStat.secondDartAverage = this.homeDart2Sum / this.homeTurnCount;
+      this.homeStat.thirdDartAverage = this.homeDart3Sum / this.homeTurnCount;
 
-      if (dart1 === 60 || dart2 === 60 || dart3 === 60) {
+      if (dart1 === 60) {
         this.homeStat.triple20s++;
       }
 
-      if (
-        this.currentLeg.starterPlayer === this.match.awayId &&
-        this.currentLeg.winner === this.match.homeId
-      ) {
-        this.homeStat.breaks++;
+      if (dart2 === 60) {
+        this.homeStat.triple20s++;
+      }
+
+      if (dart3 === 60) {
+        this.homeStat.triple20s++;
       }
 
       this.homeStat.percentageOf180PerLeg =
@@ -330,16 +355,38 @@ export class DartsParty {
       return this.homeStat;
     } else {
       this.awayTurnCount++;
-      this.awayStat.average =
-        (this.awayStat.average + thrownPoint) / this.awayTurnCount;
-
+      this.awaySumPoint += thrownPoint;
+      this.awayDart1Sum += dart1;
+      this.awayDart2Sum += dart2;
+      this.awayDart3Sum += dart3;
+      console.log(
+        "AwayTurn:",
+        this.awayTurnCount,
+        "AwaySumPoint:",
+        this.awaySumPoint
+      );
+      this.awayStat.average = this.awaySumPoint / this.awayTurnCount;
+      console.log(
+        "CurrentAwayPoint:",
+        this.currentLeg.awayPoint,
+        "thrownPoint:",
+        thrownPoint,
+        "PreviousAwayPoint:",
+        this.previousAwayPoint
+      );
       if (
-        possible3DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-        possible2DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-        possible1DartCheckout.includes(this.currentLeg.awayPoint)
+        possible3DartsCheckouts.includes(this.previousAwayPoint) ||
+        possible2DartsCheckouts.includes(this.previousAwayPoint) ||
+        possible1DartCheckout.includes(this.previousAwayPoint)
       ) {
         this.awayPossibleCheckoutCount++;
-        if (this.currentLeg.awayPoint === thrownPoint) {
+        console.log(
+          "AwayPossibleCheckoutCount:",
+          this.awayPossibleCheckoutCount
+        );
+        if (this.previousAwayPoint === thrownPoint) {
+          this.awayCheckoutCount++;
+          console.log("AwayCheckoutCount:", this.awayCheckoutCount);
           this.awayStat.checkouts =
             this.awayCheckoutCount / this.awayPossibleCheckoutCount;
           if (thrownPoint > this.awayStat.highestCheckout) {
@@ -365,22 +412,19 @@ export class DartsParty {
       }
       if (this.awayTurnCount < 4) {
         this.awayStat.first9DartsAverage =
-          (this.awayStat.first9DartsAverage + thrownPoint) / this.awayTurnCount;
+          this.awaySumPoint / this.awayTurnCount;
       }
-      this.awayStat.firstDartAvergrage =
-        (this.awayStat.firstDartAvergrage + dart1) / this.awayTurnCount;
-      this.awayStat.secondDartAverage =
-        (this.awayStat.secondDartAverage + dart2) / this.awayTurnCount;
-      this.awayStat.thirdDartAverage =
-        (this.awayStat.thirdDartAverage + dart3) / this.awayTurnCount;
-      if (dart1 === 60 || dart2 === 60 || dart3 === 60) {
+      this.awayStat.firstDartAvergrage = this.awayDart1Sum / this.awayTurnCount;
+      this.awayStat.secondDartAverage = this.awayDart2Sum / this.awayTurnCount;
+      this.awayStat.thirdDartAverage = this.awayDart3Sum / this.awayTurnCount;
+      if (dart1 === 60) {
         this.awayStat.triple20s++;
       }
-      if (
-        this.currentLeg.starterPlayer === this.match.homeId &&
-        this.currentLeg.winner === this.match.awayId
-      ) {
-        this.awayStat.breaks++;
+      if (dart2 === 60) {
+        this.awayStat.triple20s++;
+      }
+      if (dart3 === 60) {
+        this.awayStat.triple20s++;
       }
       this.awayStat.percentageOf180PerLeg =
         this.awayStat.numberOf180s / this.awayTurnCount;

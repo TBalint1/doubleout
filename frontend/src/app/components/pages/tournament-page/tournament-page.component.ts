@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MatchesService } from 'src/app/services/matches.service';
 import { TournamentsService } from 'src/app/services/tournaments.service';
 import { Match } from 'src/app/shared/models/Match';
 import { Tournament } from 'src/app/shared/models/Tournament';
@@ -16,7 +17,8 @@ export class TournamentPageComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private tournamentsService: TournamentsService,
-    private router: Router
+    private router: Router,
+    private matchesService: MatchesService
   ) {
     let matchObservalbe: Observable<Match[]>;
     activatedRoute.params.subscribe((params) => {
@@ -29,4 +31,9 @@ export class TournamentPageComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  startMatch(matchId: string) {
+    this.matchesService
+      .startMatch(matchId)
+      .subscribe((data) => console.log(data));
+  }
 }

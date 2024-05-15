@@ -1,158 +1,65 @@
-
-.table-container {
-    width: 28%;
-    margin: 50px auto 0;
-    box-shadow: 0 0 5px black;
-    margin-right: 50px;
-    float: right;
-    
+.new-tournament {
+    text-align: left;
+    margin-top: 2rem;;
 }
 
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 0.5rem; /* Lekerekített szélek */
-}
-
-.table-container th,
-.table-container td {
-    padding: 10px;
-    text-align: center;
-    color: crimson;
-}
-
-.table-container th {
-    background-color: darkred; /* Piros hátterű fejléc */
-    color: #fff;
-}
-
-.table-container tr:nth-child(even) {
-    background-color: #D6350E; /* Bézs háttérszín páros soroknak */
-    color: white;
-}
-
-.table-container tr:nth-child(odd) {
-    background-color: #fff; /* Fehér háttérszín páratlan soroknak */
-    color: crimson
-}
-
-.table-container a {
-    color: crimson;
-}
-
-.match-container {
-    width: 40%;
-    margin: 50px auto 0;
-    box-shadow: 0 0 5px black;
-    margin-right: 50px;
-    float: right;
-    
-}
-
-.match-container table {
-    width: 100%;
-    border-radius: 10px; /* Lekerekített szélek */
-}
-
-.match-container caption{
-    background-color: darkred; /* Piros hátterű fejléc */
-    color: #fff;
-    font-size: 1.1rem;
-}
-
-.match-container th,
-.match-container td {
-    padding: 10px;
-    text-align: center;
-    color: crimson;
-}
-
-.match-container th {
-    background-color: darkred; /* Piros hátterű fejléc */
-    color: #fff;
-    text-align: center;
-}
-
-.match-container tr:nth-child(even) {
-    background-color: #f5f5dc; /* Bézs háttérszín páros soroknak */
-    color: crimson;
-}
-
-.match-container tr:nth-child(odd) {
-    background-color: #fff; /* Fehér háttérszín páratlan soroknak */
-    color: crimson
-}
-
-.match-container a {
-    color: crimson;
-    text-align: center;
-}
-
-button {
-    background-color: #D6350E;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 42px;
-    margin: 16px 16px 16px 16px;
-    cursor: pointer;
+.new-tournament button {
     border-radius: 5rem;
-}
-
-button:hover {
-    opacity: 0.9;
+    background-color: #D6350E;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 24px;
+    height: 64px;
+    width: 16rem;  
+    font-size: 32px;  
 }
 
 .tournament-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10rem;
-    width: 40rem;
-    height: 3rem;
-    gap: 1rem;
-    align-self: center;
+    width: 30rem;
+    text-align: left;
+    justify-items: left;
+}
+.tournament-block{
+    border-radius: 0.8rem;
+    outline: none;
+    width: 30rem;
+    height: 4rem;
+    margin: 1rem auto;
+    border-color: #D6350E;
+    background-color: #fff;
+    float: left;
+
 }
 
-.tournament-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 4px solid #D6350E;
-    border-radius: 1rem;
-    width: 40rem;
-}
-
-.tournament-container header{
-    width: 40rem;
-    color: white;
+.tournament-block header{
     background-color: #D6350E;
     border-radius: 1rem 1rem 0 0;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.25rem;
+    color: #fff;
     padding: 0.5rem;
 }
 
-.tournament-container a {
-    width: 40rem;
-    color: #D6350E;
+.tournament-block table{
     border-radius: 0 0 1rem 1rem;
-    height: 3rem;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0.5rem;
+    border: 4px solid #D6350E;
+    width: 100%;
 }
-.tournament-container button {
-    font-size: 1rem;
-    height: 3rem; 
-    border-radius: 0 0 1rem 0;
+
+.tournament-block tr{
+    padding: 0.5rem;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.tournament-block button{
     background-color: #D6350E;
-    color: white;
+    border-radius: 0 0 1rem ;
+    border: none;
+    color: #fff;
+    padding: 0.5rem;
+    width: 100%;
+    text-decoration: none;
     cursor: pointer;
-    align-content: flex-end;
 }
 
