@@ -9,3 +9,11 @@
 .details{
     width: 25rem;
 }
+
+button{
+    background-color: #D6350E;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-size: 24px;
+}

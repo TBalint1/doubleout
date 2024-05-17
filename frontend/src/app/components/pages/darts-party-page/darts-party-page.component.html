@@ -111,55 +111,57 @@
             <button *ngIf="match.homeScore >= match.firstTo || match.awayScore >= match.firstTo" type="throw" routerLink="/matches/{{match.id}}">Finish</button>
         </form>
     </div>
-    <div class="home-stats">
-        <div class="home-average">{{homeStat.average}}</div>
-        <div class="home-checkouts">{{homeStat.checkouts * 100}} %</div>
-        <div class="home-180">{{homeStat.numberOf180s}}</div>
-        <div class="home-140plus">{{homeStat.numberOf140plus}}</div>
-        <div class="home-100plus">{{homeStat.numberOf100plus}}</div>
-        <div class="home-highestcheckout">{{homeStat.highestCheckout}}</div>
-        <div class="home-9dartaverage">{{homeStat.first9DartsAverage}}</div>
-        <div class="home-firstDartAverage">{{homeStat.firstDartAvergrage}}</div>
-        <div class="home-secondDartAverage">{{homeStat.secondDartAverage}}</div>
-        <div class="home-thirdDartAverage">{{homeStat.thirdDartAverage}}</div>
-        <div class="home-numberOf3DartCheckouts">{{homeStat.numberOf3DartCheckouts}}</div>
-        <div class="home-numberOf2DartCheckouts">{{homeStat.numberOf2DartCheckouts}}</div>
-        <div class="home-numberOf1DartCheckouts">{{homeStat.numberOf1DartCheckouts}}</div>
-        <div class="home-triple20s">{{homeStat.triple20s}}</div>
-        <div class="home-percentageOf180">{{homeStat.percentageOf180PerLeg * 100}} %</div>
-    </div>
-    <div class="away-stats">
-        <div class="away-average">{{awayStat.average}}</div>
-        <div class="away-checkouts">{{awayStat.checkouts * 100}} %</div>
-        <div class="away-180">{{awayStat.numberOf180s}}</div>
-        <div class="away-140plus">{{awayStat.numberOf140plus}}</div>
-        <div class="away-100plus">{{awayStat.numberOf100plus}}</div>
-        <div class="away-highestcheckout">{{awayStat.highestCheckout}}</div>
-        <div class="away-9dartaverage">{{awayStat.first9DartsAverage}}</div>
-        <div class="away-firstDartAverage">{{awayStat.firstDartAvergrage}}</div>
-        <div class="away-secondDartAverage">{{awayStat.secondDartAverage}}</div>
-        <div class="away-thirdDartAverage">{{awayStat.thirdDartAverage}}</div>
-        <div class="away-numberOf3DartCheckouts">{{awayStat.numberOf3DartCheckouts}}</div>
-        <div class="away-numberOf2DartCheckouts">{{awayStat.numberOf2DartCheckouts}}</div>
-        <div class="away-numberOf1DartCheckouts">{{awayStat.numberOf1DartCheckouts}}</div>
-        <div class="away-triple20s">{{awayStat.triple20s}}</div>
-        <div class="away-percentageOf180">{{awayStat.percentageOf180PerLeg * 100}} %</div>
-    </div>
-    <div class="Topics">
-        <div>Average</div>
-        <div>Checkouts</div>
-        <div>180's</div>
-        <div>140+</div>
-        <div>100+</div>
-        <div>Highest Checkout</div>
-        <div>First 9 Darts Average</div>
-        <div>First Dart Average</div>
-        <div>Second Dart Average</div>
-        <div>Third Dart Average</div>
-        <div>3 Darts Checkouts</div>
-        <div>2 Darts Checkouts</div>
-        <div>1 Dart Checkouts</div>
-        <div>Number of triple 20s</div>
-        <div>Percentage of 180s</div>
+    <div class="statistics-container">
+        <div class="home-stats">
+            <div class="home-average">{{homeStat.average}}</div>
+            <div class="home-checkouts">{{homeStat.checkouts * 100}} %</div>
+            <div class="home-180">{{homeStat.numberOf180s}}</div>
+            <div class="home-140plus">{{homeStat.numberOf140plus}}</div>
+            <div class="home-100plus">{{homeStat.numberOf100plus}}</div>
+            <div class="home-highestcheckout">{{homeStat.highestCheckout}}</div>
+            <div class="home-9dartaverage">{{homeStat.first9DartsAverage}}</div>
+            <div class="home-firstDartAverage">{{homeStat.firstDartAvergrage}}</div>
+            <div class="home-secondDartAverage">{{homeStat.secondDartAverage}}</div>
+            <div class="home-thirdDartAverage">{{homeStat.thirdDartAverage}}</div>
+            <div class="home-numberOf3DartCheckouts">{{homeStat.numberOf3DartCheckouts}}</div>
+            <div class="home-numberOf2DartCheckouts">{{homeStat.numberOf2DartCheckouts}}</div>
+            <div class="home-numberOf1DartCheckouts">{{homeStat.numberOf1DartCheckouts}}</div>
+            <div class="home-triple20s">{{homeStat.triple20s}}</div>
+            <div class="home-percentageOf180">{{homeStat.percentageOf180PerLeg * 100}} %</div>
+        </div>
+        <div class="Topics">
+            <div>Average</div>
+            <div>Checkouts</div>
+            <div>180's</div>
+            <div>140+</div>
+            <div>100+</div>
+            <div>Highest Checkout</div>
+            <div>First 9 Darts Average</div>
+            <div>First Dart Average</div>
+            <div>Second Dart Average</div>
+            <div>Third Dart Average</div>
+            <div>3 Darts Checkouts</div>
+            <div>2 Darts Checkouts</div>
+            <div>1 Dart Checkouts</div>
+            <div>Number of triple 20s</div>
+            <div>Percentage of 180s</div>
+        </div>
+        <div class="away-stats">
+            <div class="away-average">{{awayStat.average}}</div>
+            <div class="away-checkouts">{{awayStat.checkouts * 100}} %</div>
+            <div class="away-180">{{awayStat.numberOf180s}}</div>
+            <div class="away-140plus">{{awayStat.numberOf140plus}}</div>
+            <div class="away-100plus">{{awayStat.numberOf100plus}}</div>
+            <div class="away-highestcheckout">{{awayStat.highestCheckout}}</div>
+            <div class="away-9dartaverage">{{awayStat.first9DartsAverage}}</div>
+            <div class="away-firstDartAverage">{{awayStat.firstDartAvergrage}}</div>
+            <div class="away-secondDartAverage">{{awayStat.secondDartAverage}}</div>
+            <div class="away-thirdDartAverage">{{awayStat.thirdDartAverage}}</div>
+            <div class="away-numberOf3DartCheckouts">{{awayStat.numberOf3DartCheckouts}}</div>
+            <div class="away-numberOf2DartCheckouts">{{awayStat.numberOf2DartCheckouts}}</div>
+            <div class="away-numberOf1DartCheckouts">{{awayStat.numberOf1DartCheckouts}}</div>
+            <div class="away-triple20s">{{awayStat.triple20s}}</div>
+            <div class="away-percentageOf180">{{awayStat.percentageOf180PerLeg * 100}} %</div>
+        </div>
     </div>
 </body>

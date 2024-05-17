@@ -212,7 +212,6 @@ router.put(
 router.put(
   "/:matchID/onGoing/throw",
   asyncHandler(async (req, res) => {
-    console.log(dartsParty);
     const match = await NewMatchModel.findById(req.params.matchID);
     const {
       playerID,
@@ -238,8 +237,6 @@ router.put(
     console.log(state);
     if (state !== undefined) {
       await NewMatchModel.findByIdAndUpdate(req.params.matchID, state);
-      console.log(stat);
-      console.log(req.body.playerID);
       await StatModel.findOneAndUpdate(
         { playerId: req.body.playerID, matchId: req.params.matchID },
         stat

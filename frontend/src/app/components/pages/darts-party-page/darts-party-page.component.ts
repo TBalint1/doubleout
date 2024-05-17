@@ -120,6 +120,8 @@ export class DartsPartyPageComponent implements OnInit {
       console.log('Ez a current leg:', this.currentLeg);
       if (this.currentLeg.starterPlayer !== this.previousLeg.starterPlayer) {
         this.currentPlayer = this.currentLeg.starterPlayer;
+        this.homeThrows = [];
+        this.awayThrows = [];
         if (this.currentPlayer === this.match.homeId) {
           this.currentPlayerName = this.match.homeName;
         } else {

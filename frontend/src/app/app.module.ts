@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -14,13 +14,19 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { TitleComponent } from './components/partials/title/title.component';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
 import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
 import { TextInputComponent } from './components/partials/text-input/text-input.component';
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
-import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import {
+  CalendarModule,
+  DatePickerModule,
+  TimePickerModule,
+  DateRangePickerModule,
+  DateTimePickerModule,
+} from '@syncfusion/ej2-angular-calendars';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { NewTournamentPageComponent } from './components/pages/new-tournament-page/new-tournament-page.component';
 import { SelectInputComponent } from './components/partials/select-input/select-input.component';
@@ -65,13 +71,17 @@ import { DartsPartyPageComponent } from './components/pages/darts-party-page/dar
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:3000,
-      positionClass:'toast-bottom-right',
-      newestOnTop:false
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      newestOnTop: false,
     }),
-    CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule
+    CalendarModule,
+    DatePickerModule,
+    TimePickerModule,
+    DateRangePickerModule,
+    DateTimePickerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

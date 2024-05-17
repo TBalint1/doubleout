@@ -17,7 +17,6 @@
             label="Type"
             [options]="[
                 {value: 'elimination', label: 'Elimination'},
-                {value: 'league', label: 'League'},
             ]">
         </select-input>
         <select-input *ngIf="fc.type.value === 'elimination'"
@@ -73,6 +72,13 @@
                 {value: 1, label: '1'},
                 {value: 2, label: '2'},
                 {value: 3, label: '3'},
+                {value: 4, label: '4'},
+                {value: 5, label: '5'},
+                {value: 6, label: '6'},
+                {value: 7, label: '7'},
+                {value: 8, label: '8'},
+                {value: 9, label: '9'},
+                {value: 10, label: '10'},
             ]">
         </select-input>
         <select-input
@@ -123,7 +129,7 @@
                 </select-input>
             </button>
         </ng-container>         -->
-        <button type="button" (click)="addPlayers(fc.playersCount.value)">Add Player</button>
+        <button type="button" (click)="addPlayers(fc.playersCount.value)">Add Players</button>
         <default-button text="Create Tournament"></default-button>
         </form>
     </div>

@@ -88,7 +88,6 @@ export class DartsParty {
     const dart1 = turn.throw1Sector * turn.throw1Multiplier;
     const dart2 = turn.throw2Sector * turn.throw2Multiplier;
     const dart3 = turn.throw3Sector * turn.throw3Multiplier;
-    const thrownPoints = dart1 + dart2 + dart3;
     const previousTurn =
       this.currentLeg.turns?.[this.currentLeg.turns.length - 1]?.playerId;
     if (previousTurn === undefined || previousTurn !== turn.playerId) {
@@ -118,12 +117,6 @@ export class DartsParty {
                 this.match.homeScore++;
                 this.startNewLegIfpossible();
               } else if (currentPoint > 0) {
-                if (
-                  possible3DartsCheckouts.includes(this.currentLeg.homePoint) ||
-                  possible2DartsCheckouts.includes(this.currentLeg.homePoint) ||
-                  possible1DartCheckout.includes(this.currentLeg.homePoint)
-                ) {
-                }
                 this.currentLeg.homePoint = currentPoint;
               }
             }
@@ -152,12 +145,6 @@ export class DartsParty {
                 this.match.awayScore++;
                 this.startNewLegIfpossible();
               } else if (currentPoint > 0) {
-                if (
-                  possible3DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-                  possible2DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-                  possible1DartCheckout.includes(this.currentLeg.awayPoint)
-                ) {
-                }
                 this.currentLeg.awayPoint = currentPoint;
               }
             }
@@ -188,12 +175,6 @@ export class DartsParty {
                 this.match.homeScore++;
                 this.startNewLegIfpossible();
               } else if (currentPoint > 0) {
-                if (
-                  possible3DartsCheckouts.includes(this.currentLeg.homePoint) ||
-                  possible2DartsCheckouts.includes(this.currentLeg.homePoint) ||
-                  possible1DartCheckout.includes(this.currentLeg.homePoint)
-                ) {
-                }
                 this.currentLeg.homePoint = currentPoint;
               }
             }
@@ -222,12 +203,6 @@ export class DartsParty {
                 this.match.awayScore++;
                 this.startNewLegIfpossible();
               } else if (currentPoint > 0) {
-                if (
-                  possible3DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-                  possible2DartsCheckouts.includes(this.currentLeg.awayPoint) ||
-                  possible1DartCheckout.includes(this.currentLeg.awayPoint)
-                ) {
-                }
                 this.currentLeg.awayPoint = currentPoint;
               }
             }
@@ -235,8 +210,6 @@ export class DartsParty {
           currentPlayer = this.match.homeId;
         }
       }
-      console.log("Ez a match:", this.match);
-      console.log("Leg:", this.currentLeg);
       this.match.legs = [this.currentLeg];
       return this.match;
     } else {

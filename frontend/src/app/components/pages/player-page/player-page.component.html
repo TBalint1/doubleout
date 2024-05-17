@@ -10,77 +10,81 @@
     </div>
 </div>
 
-<div class="statistics-container">
-    <header>Statistics</header>
-    <table>
-        <tr>
-            <td>Average</td>
-            <td>{{average}}</td>
-        </tr>
-        <tr>
-            <td>180's</td>
-            <td>{{numberOf180s}}</td>
-        </tr>
-        <tr>
-            <td>Checkout %</td>
-            <td>{{checkouts}}%</td>
-        </tr>
-        <tr>
-            <td>140+</td>
-            <td>{{numberOf140plus}}</td>
-        </tr>
-        <tr>
-            <td>100+</td>
-            <td>{{numberOf100plus}}</td>
-        </tr>
-        <tr>
-            <td>Highest Checkout</td>
-            <td>{{highestCheckout}}</td>
-        </tr>
-        <tr>
-            <td>First 9 averages</td>
-            <td>{{first9DartsAverage}}</td>
-        </tr>
-        <tr>
-            <td>First dart average</td>
-            <td>{{firstDartAverage}}</td>
-        </tr>
-        <tr>
-            <td>Second dart average</td>
-            <td>{{secondDartAverage}}</td>
-        </tr>
-        <tr>
-            <td>Third dart average</td>
-            <td>{{thirdDartAverage}}</td>
-        </tr>
-        <tr>
-            <td>Triple 20s</td>
-            <td>{{triple20s}}</td>
-        </tr>
-        <tr>
-            <td>180/Leg</td>
-            <td>{{percentageOf180PerLeg}}</td>
-        </tr>
-    </table>
+<div class="info-container">
+    <div class="statistics-container">
+        <header>Statistics</header>
+        <table>
+            <tr>
+                <td>Average</td>
+                <td>{{average}}</td>
+            </tr>
+            <tr>
+                <td>180's</td>
+                <td>{{numberOf180s}}</td>
+            </tr>
+            <tr>
+                <td>Checkout %</td>
+                <td>{{checkouts}}%</td>
+            </tr>
+            <tr>
+                <td>140+</td>
+                <td>{{numberOf140plus}}</td>
+            </tr>
+            <tr>
+                <td>100+</td>
+                <td>{{numberOf100plus}}</td>
+            </tr>
+            <tr>
+                <td>Highest Checkout</td>
+                <td>{{highestCheckout}}</td>
+            </tr>
+            <tr>
+                <td>First 9 averages</td>
+                <td>{{first9DartsAverage}}</td>
+            </tr>
+            <tr>
+                <td>First dart average</td>
+                <td>{{firstDartAverage}}</td>
+            </tr>
+            <tr>
+                <td>Second dart average</td>
+                <td>{{secondDartAverage}}</td>
+            </tr>
+            <tr>
+                <td>Third dart average</td>
+                <td>{{thirdDartAverage}}</td>
+            </tr>
+            <tr>
+                <td>Triple 20s</td>
+                <td>{{triple20s}}</td>
+            </tr>
+            <tr>
+                <td>180/Leg</td>
+                <td>{{percentageOf180PerLeg}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="matches-container">
+        <header>Matches</header>
+        <ng-container *ngFor="let match of matches">
+            <div class="match-block" *ngIf="match.winner !== ''">
+                <table>
+                    <tr>
+                        <td>{{match.round}}</td>
+                        <td>{{match.homeName}}</td>
+                        <td>{{match.homeScore}}</td>
+                        <td>-</td>
+                        <td>{{match.awayScore}}</td>
+                        <td>{{match.awayName}}</td>
+                        <td>
+                            <button routerLink="/matches/{{match.id}}">View</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </ng-container>
+    </div>
 </div>
 
-<div class="matches-container">
-    <header>Matches</header>
-    <ng-container *ngFor="let match of matches">
-        <div class="match-block" *ngIf="match.winner !== ''">
-            <table>
-                <tr>
-                    <td>{{match.round}}</td>
-                    <td>{{match.homeName}}</td>
-                    <td>{{match.homeScore}}</td>
-                    <td>-</td>
-                    <td>{{match.awayScore}}</td>
-                    <td>{{match.awayName}}</td>
-                    <td>
-                        <button routerLink="/matches/{{match.id}}">View</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </ng-container>
-</div>
+

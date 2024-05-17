@@ -1,6 +1,11 @@
 .new-tournament {
     text-align: left;
-    margin-top: 2rem;;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
 }
 
 .new-tournament button {
@@ -13,7 +18,14 @@
     margin: 24px;
     height: 64px;
     width: 16rem;  
-    font-size: 32px;  
+    font-size: 32px; 
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #D6350E;
 }
 
 .tournament-container {

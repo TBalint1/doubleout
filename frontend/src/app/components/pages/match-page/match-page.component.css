@@ -1,30 +1,70 @@
-.home-container {
-    padding-left: 10rem;
-    width: 30%;
+.scoreboard-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px;
     text-align: center;
-}
-
-.away-container {
-    float: right;
-    padding-right: 10rem;
-    width: 30%;
-    text-align: center;
-}
-
-.Home-Player,
-.Away-Player {
     font-size: 48px;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #D6350E;
+    color: #fff;
 }
 
-.Home-Score,
-.Away-Score {
-    font-size: 38px;
-}
-.actions-container {
-    flex-direction: column;
+.action-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
+
+.action-container button{
+    border-radius: 5rem;
+    background-color: #D6350E;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 24px;
+    height: 64px;
+    width: 16rem;  
+    font-size: 32px; 
+}
+
+
+.statistics-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border: 4px solid #D6350E;
+    border-radius: 0 0 1rem 1rem;
+
+}
+
+header{
+    background-color: #D6350E;
+    border-radius: 1rem 1rem 0 0;
+    color: #fff;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.Topics{
+
+    color: #D6350E;
+
+}
+
+
+

@@ -9,11 +9,13 @@ import {
   NEW_TOURNAMENT_URL,
   TOURNAMENT_BY_ID_URL,
   PLAYERS_URL,
+  TOURNAMENT_BY_SEARCH_URL,
 } from '../shared/constants/urls';
 import { Match } from '../shared/models/Match';
 import { Player } from '../shared/models/Player';
 import { ITournamentCreate } from '../shared/interfaces/ITournamentCreate';
 import { ToastrService } from 'ngx-toastr';
+import { TournamentWithMatches } from '../shared/models/TournamentWithMatches';
 
 const TOURNAMENT_KEY = 'Tournament';
 @Injectable({
@@ -33,12 +35,14 @@ export class TournamentsService {
     return this.http.get<Tournament[]>(TOURNAMENTS_URL);
   }
 
-  getTournamentByID(
-    tournamentID: string
-  ): Observable<{ tournament: Tournament; matches: Match[] }> {
-    return this.http.get<{ tournament: Tournament; matches: Match[] }>(
+  getTournamentByID(tournamentID: string): Observable<TournamentWithMatches> {
+    return this.http.get<TournamentWithMatches>(
       TOURNAMENT_BY_ID_URL + tournamentID
     );
+  }
+
+  getAllTournamentsBySearchTerm(searchTerm: string) {
+    return this.http.get<Tournament[]>(TOURNAMENT_BY_SEARCH_URL + searchTerm);
   }
 
   getAllMatch(): Observable<Match[]> {
@@ -52,14 +56,6 @@ export class TournamentsService {
   getAllMatchByTournamentID(tournamentID: string): Observable<Match[]> {
     return this.http.get<Match[]>(MATCH_URL + '?tournamentID=' + tournamentID);
   }
-
-  // getAllMatchByTournamentID(tournamentID: string): Observable<Match[]> {
-  //   // Paraméterek összeállítása
-  //   const params = new HttpParams().set('tournamentID', tournamentID);
-
-  //   // GET kérés elküldése a megadott paraméterekkel
-  //   return this.http.get<Match[]>(MATCH_URL, { params });
-  // }
 
   getMatchByTournamentID(
     tournamentID: string,

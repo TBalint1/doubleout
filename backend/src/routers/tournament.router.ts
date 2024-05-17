@@ -6,6 +6,7 @@ import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import { Player, PlayerModel } from "../models/player.model";
 import { Match, NewMatchModel, Turn } from "../models/newMatch.model";
 import { DartsParty } from "../classes/dartsParty";
+import { StatModel } from "../models/stat.model";
 
 const router = Router();
 
@@ -36,7 +37,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const searchRegex = new RegExp(req.params.searchTerm, "i");
     const tournaments = await TournamentModel.find({
-      NAME: { $regex: searchRegex },
+      name: { $regex: searchRegex },
     });
     res.send(tournaments);
   })
@@ -49,9 +50,13 @@ router.get(
     const matches = await NewMatchModel.find({
       tournamentId: req.params.tournamentID,
     });
+    const stats = await StatModel.find({
+      tournamentId: req.params.tournamentID,
+    });
     const data = {
       tournament: tournament,
       matches: matches,
+      stats: stats,
     };
     res.send(data);
   })
