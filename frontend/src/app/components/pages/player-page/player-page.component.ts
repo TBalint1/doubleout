@@ -29,7 +29,6 @@ export class PlayerPageComponent implements OnInit {
   numberOf2DartCheckouts: number = 0;
   numberOf1DartCheckouts: number = 0;
   triple20s: number = 0;
-  breaks: number = 0;
   percentageOf180PerLeg: number = 0;
 
   constructor(
@@ -81,7 +80,6 @@ export class PlayerPageComponent implements OnInit {
               this.numberOf1DartCheckouts +
               this.stats[i].numberOf1DartCheckouts;
             this.triple20s = this.triple20s + this.stats[i].triple20s;
-            this.breaks = this.breaks + this.stats[i].breaks;
             this.percentageOf180PerLeg =
               this.percentageOf180PerLeg + this.stats[i].percentageOf180PerLeg;
           }
